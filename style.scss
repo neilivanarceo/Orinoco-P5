@@ -1,0 +1,32 @@
+#container {
+  border: black;
+  border: 1px solid black;
+  display: flex;
+  flex-flow: row wrap;
+  flex-wrap: wrap;
+
+  h1 {
+    margin: 20px;
+  }
+  .card {
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 15px;
+    width: 20%;
+    height: 50%;
+    margin: 20px;
+    border: 1px solid black;
+  }
+  img {
+    width: 90%;
+    height: 50%;
+    border: 1px solid black;
+  }
+  h1 {
+    border: 1px solid black;
+    margin: 0;
+  }
+  p {
+    border: 1px solid black;
+  }
+}
