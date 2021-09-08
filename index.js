@@ -14,7 +14,6 @@ fetch(uri)
   .then((response) => response.json())
   .then((data) => createCards(data));
 
-
 function createCards(array) {
   const container = document.getElementById('container');
   
@@ -34,7 +33,6 @@ function createCard(obj) {
   const description = document.createElement('p');
   const price = document.createElement('p');
   
-  
   const link = document.createElement('a');
 
   let anotherLink = './single-product.html?=_id' + obj._id;
@@ -45,16 +43,14 @@ function createCard(obj) {
   name.innerText = obj.name;
   price.innerText = obj.price;
   description.innerText = obj.description;
-  
 
   img.setAttribute('src', obj.imageUrl);
   img.setAttribute('alt', 'product image');
 
   card.appendChild(img);
+  card.appendChild(description);
   card.appendChild(name);
   card.appendChild(price);
-  card.appendChild(description);
-  
+ 
   return card;
-  
 }
