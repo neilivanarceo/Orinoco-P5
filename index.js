@@ -14,9 +14,9 @@ fetch(uri)
   .then((response) => response.json())
   .then((data) => createCards(data));
 
+
 function createCards(array) {
   const container = document.getElementById('container');
-  
   const length = array.length;
 
   for (let i=0; i<length; i++) {
@@ -25,13 +25,14 @@ function createCards(array) {
   }
 }
 
+
 function createCard(obj) {
   const card = document.createElement('section');
 
   const img = document.createElement('img');
-  const name = document.createElement('h1');
-  const description = document.createElement('p');
+  const name = document.createElement('h2');
   const price = document.createElement('p');
+  const description = document.createElement('p');
   
   const link = document.createElement('a');
 
@@ -48,9 +49,10 @@ function createCard(obj) {
   img.setAttribute('alt', 'product image');
 
   card.appendChild(img);
-  card.appendChild(description);
   card.appendChild(name);
   card.appendChild(price);
- 
+  card.appendChild(description);
+  
   return card;
+  
 }
