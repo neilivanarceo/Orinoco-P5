@@ -1,43 +1,219 @@
-h1 {
-  margin: 25px;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-#container {
-  border: black;
-  border: 1px solid blue;
+header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 150px;
+}
+
+@media only screen and (max-width: 1400px) {
+  header {
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  header {
+    margin: 5px 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    margin: 5px 5px;
+  }
+}
+
+header .heading-name {
+  margin: 0px;
+  font-size: xx-large;
+}
+
+header .heading-name a {
+  text-decoration: none;
+  color: black;
+}
+
+header .navigation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 30px;
+}
+
+header .navigation ul li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 20px;
+}
+
+header .navigation ul li .cart {
+  background-color: #dfdfdf;
+  width: 70px;
+  text-align: center;
+}
+
+header .navigation ul li .cart:hover {
+  background-color: #9d9d9d;
+  text-decoration: none;
+}
+
+header .navigation ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+header .navigation ul li a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  margin: 20px 150px;
+  color: black;
+}
+
+@media only screen and (max-width: 1400px) {
+  h1 {
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  h1 {
+    margin: 5px 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    margin: 5px 5px;
+  }
+}
+
+.container {
+  border: 1px solid black;
+  height: auto;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px 150px;
 }
 
-#container .card {
-  background-color: lightblue;
-  padding: 20px;
-  border-radius: 15px;
-  width: 20%;
-  height: 50%;
-  margin: 20px;
+@media only screen and (max-width: 1400px) {
+  .container {
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container {
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    margin: 20px 20px;
+  }
+}
+
+.container .teddy-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 30px;
+  -webkit-box-shadow: 0px 2px 20px #d3cfcf;
+          box-shadow: 0px 2px 20px #d3cfcf;
+  width: 30%;
+  height: 30%;
   border: 1px solid black;
 }
 
-#container .card img {
-  width: 100%;
+@media only screen and (max-width: 1400px) {
+  .container .teddy-item {
+    margin: 20px 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .container .teddy-item {
+    margin: 10x 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container .teddy-item {
+    margin: 5px 5px;
+  }
+}
+
+.container .teddy-item img {
   height: 200px;
-  border: 1px solid black;
+  width: 100%;
+  border-bottom: 0.5px solid black;
+  cursor: pointer;
 }
 
-#container .card h1 {
-  border: 1px solid black;
-  margin: 0;
+.container .teddy-item .teddy-name {
+  margin: 10px;
+  font-size: 25px;
 }
 
-#container .card p {
-  border: 1px solid black;
+.container .teddy-item .description {
+  margin: 10px;
+}
+
+.container .teddy-item form {
+  margin: 10px;
+}
+
+.container .teddy-item .price {
+  margin: 10px;
+}
+
+.container .teddy-item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container .teddy-item .addToCart {
+  height: 25px;
+  width: 50%;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.container .teddy-item .addToCart:hover {
+  background-color: #d8d8d8;
 }
 /*# sourceMappingURL=style.css.map */

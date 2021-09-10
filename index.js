@@ -1,58 +1,47 @@
-// TODO: get the data from the server
-// which means go to an endpoint
+let objects = [];
 
-// use fetch
-// fetch is syntactic sugar
-// which makes httpRequest promisified and easy to think about
+async function requestItems() {
+  const response = await axios.get('http://localhost:3000/api/teddies');
+  
+  objects = response.data
+  console.log(objects)
 
-const uri = 'http://localhost:3000/api/teddies/';
-const singleLink = './single-product.html?='
-
-// ./single-product.html?=_id
-
-fetch(uri)
-  .then((response) => response.json())
-  .then((data) => createCards(data));
-
-
-function createCards(array) {
-  const container = document.getElementById('container');
-  const length = array.length;
-
-  for (let i=0; i<length; i++) {
-    const card = createCard(array[i]);
-    container.appendChild(card);
-  }
+  showItems()
 }
+requestItems();
 
+function showItems() {
+  const container = document.querySelector('.container');
+ 
+  const itemsHtml = objects.map((item,i) => {
+    return (
+        `
+        <div class="teddy-item"> 
+                   
+                    <img class="image-item"  src="${item.imageUrl}"></img>
+                   
+                        <span class="teddy-name">${item.name}</span>
+                        <span class="description">${item.description}</span>
+                        
+                            <form> Color:
+                                <select name="color" title="Choose a color">
+                                    <option value="white">White</option>
+                                    <option value="brown">Brown</option>
+                                    <option value="pink">Pink</option>
+                                    <option value="yellow">Yellow</option>
+                                </select>
+                            </form>
+                            <span class="price">Price : $${item.price}</span>
+                        <button class="addToCart" type="button">
+                        Add to Cart
+                        </button>
+                   
+                </div>
+        `
+    )
+  })
 
-function createCard(obj) {
-  const card = document.createElement('section');
-
-  const img = document.createElement('img');
-  const name = document.createElement('h2');
-  const price = document.createElement('p');
-  const description = document.createElement('p');
-  
-  const link = document.createElement('a');
-
-  let anotherLink = './single-product.html?=_id' + obj._id;
-  link.setAttribute('href', `${singleLink}${obj._id}`)
-  
-  card.classList.add('card');
-  
-  name.innerText = obj.name;
-  price.innerText = obj.price;
-  description.innerText = obj.description;
-
-  img.setAttribute('src', obj.imageUrl);
-  img.setAttribute('alt', 'product image');
-
-  card.appendChild(img);
-  card.appendChild(name);
-  card.appendChild(price);
-  card.appendChild(description);
-  
-  return card;
-  
+  if(container) {
+    container.innerHTML += itemsHtml.toString()
+  }
 }

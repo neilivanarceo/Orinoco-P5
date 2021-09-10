@@ -8,10 +8,27 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Orinoco</h1>
-   <div id="container"></div>
-        <script src="index.js"></script>
+    <header>
+        <div class="heading-name"> 
+            <a href="index.html">Orinoco</a>
+        </div>
+
+        <div class="navigation">
+            <ul>
+                <li><a href="index.html" id="home">Home</a></li>
+                <li><a href="cart.html" class="cart">Cart (<span>0</span>)</a></li>
+            </ul>
+        </div>
+    </header>
+
+   <div class="container"></div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js" integrity="sha512-lTLt+W7MrmDfKam+r3D2LURu0F47a3QaW5nF0c6Hl0JDZ57ruei+ovbg7BrZ+0bjVJ5YgzsAWE+RreERbpPE1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="index.js"></script>
+    <script src="cart.js"></script>
        
+        
 </body>
 </html>
 
@@ -37,10 +54,10 @@
             <h1>Teddy Bear</h1>
 
             <div class="index-container">
-                <div class="teddy-item"> 
+                <div class="container"> 
                     <a href="teddy-one.html" URL=''>
                     <img class="image-item"  src="images/teddy_1.jpg"></a>
-                    <div class="teddy-item-detail">
+                   
                         <span class="teddy-name">Teddy One</span><br>
                         <span class="description">Description1</span><br>
                         <span class="price">$10</span><br>
@@ -55,7 +72,7 @@
                         <br><button class="addToCart" type="button">
                         Add to Cart
                         </button>
-                    </div>
+                   
                 </div>
 
                     <div class="teddy-item">
