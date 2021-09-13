@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 150px;
+}
+
+header .heading-name {
+  margin: 0px;
+  font-size: xx-large;
+}
+
+header .heading-name a {
+  text-decoration: none;
+  color: black;
+}
+
+header .navigation ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 30px;
+}
+
+header .navigation ul li {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  margin: 20px;
+}
+
+header .navigation ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+header .navigation ul li a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  margin: 20px 150px;
+  color: black;
+  text-align: left;
+}
+
+.container {
+  border: 3px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 20px 150px;
+  -webkit-box-shadow: 0px 2px 20px #d3cfcf;
+          box-shadow: 0px 2px 20px #d3cfcf;
+  height: auto;
+  width: 40%;
+}
+
+.container .teddy-item-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container .teddy-item-1 .teddy-image {
+  height: auto;
+}
+
+.container .teddy-item-1 .teddy-image img {
+  height: 300px;
+  width: 450px;
+  border: 1px solid black;
+}
+
+.container .teddy-item-1 .description {
+  width: auto;
+  height: auto;
+}
+
+.container .teddy-item-1 .description p {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid black;
+}
+
+.container .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid black;
+  margin-left: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.container .information a {
+  text-decoration: none;
+  color: black;
+}
+
+.container .information a :hover {
+  text-decoration: underline;
+}
+
+.container .information .addToCart {
+  height: 25px;
+  width: 90px;
+  cursor: pointer;
+}
+
+.container .information .addToCart:hover {
+  background-color: #d8d8d8;
+  border: 1px solid black;
+}
+/*# sourceMappingURL=teddyone.css.map */
