@@ -18,8 +18,8 @@ function showItems() {
         `
         <div class="teddy-item"> 
                    
-                    <img class="image-item"  src="${item.imageUrl}"></img>
-                   
+                    <img class="image-item" href="/viewItem/${item._id}" src="${item.imageUrl}"></img>
+                  
                         <span class="teddy-name">${item.name}</span>
                         <span class="description">${item.description}</span>
                         
