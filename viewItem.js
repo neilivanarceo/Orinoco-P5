@@ -1,10 +1,12 @@
 let objects = [];
-
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id')
+console.log(id)
 async function requestItems() {
-  const response = await axios.get('http://localhost:3000/api/teddies');
+  const response = await axios.get(`http://localhost:3000/api/teddies/${id}`);
   
-  getAllTeddies = response.data
-  console.log(getAllTeddies)
+  teddy = response.data;
+  
 
   showItems()
 }
@@ -13,8 +15,7 @@ requestItems();
 function showItems() {
   const container = document.querySelector('.container');
   
-  const itemsHtml = getAllTeddies.map((teddy,i) => {
-    return (
+  const itemsHtml = 
         `
         
         <div class="teddy-item"> 
@@ -39,8 +40,7 @@ function showItems() {
           
        </div>
         `
-    )
-  })
+    
 
   if(container) {
     container.innerHTML += itemsHtml.toString()
