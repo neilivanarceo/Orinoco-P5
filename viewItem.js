@@ -6,8 +6,7 @@ async function requestItems() {
   const response = await axios.get(`http://localhost:3000/api/teddies/${id}`);
   
   teddy = response.data;
-  
-
+  console.log(teddy)
   showItems()
 }
 requestItems();
@@ -34,7 +33,7 @@ function showItems() {
                        </select>
                    </form>
                    <span class="price">Price : $${teddy.price}</span>
-               <button class="addToCart" type="button">
+             <button class="addToCart"  type="button">
                Add to Cart
                </button>
           

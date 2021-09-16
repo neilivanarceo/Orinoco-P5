@@ -1,0 +1,147 @@
+@import "./variables";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 150px;
+  @include margin30;
+
+  .heading-name {
+    margin: 0px;
+    font-size: xx-large;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .navigation ul {
+    display: flex;
+    margin-right: 30px;
+
+    @include responsive(tab) {
+      margin-right: 0;
+    }
+    @include responsive(phone) {
+      margin-right: 0;
+    }
+
+    li {
+      display: inline-flex;
+      margin: 20px;
+
+      @include responsive(tab) {
+        margin-right: 0;
+      }
+      @include responsive(phone) {
+        margin-right: 0;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.container {
+  margin: 80px 250px;
+  @include margin30;
+  border: 1px solid black;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th {
+      text-align: left;
+      padding: 10px;
+      color: black;
+      background-color: gray;
+    }
+
+    th:last-child {
+      text-align: right;
+    }
+
+    td:last-child {
+      text-align: right;
+    }
+
+    td {
+      padding: 10px 10px;
+
+      @include responsive(tab) {
+        padding: 0px;
+      }
+      @include responsive(phone) {
+        padding: 0px;
+      }
+
+      input {
+        width: 50px;
+        height: 30px;
+        padding: 5px;
+      }
+
+      a {
+        color: red;
+        font-size: 12px;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      img {
+        height: 80px;
+        width: 80px;
+        margin-right: 5px;
+        border: 1px solid black;
+      }
+
+      .cart-detail {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 10px 2px;
+      }
+    }
+    th:last-child {
+      text-align: right;
+    }
+  }
+  .total-price {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+    table {
+      border-top: 2px solid black;
+      max-width: 250px;
+
+      @include responsive(tab) {
+        padding: 0px;
+      }
+      @include responsive(phone) {
+        padding: 0px;
+      }
+
+      td:last-child {
+        text-align: right;
+      }
+    }
+  }
+}

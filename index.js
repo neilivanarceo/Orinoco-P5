@@ -1,6 +1,5 @@
-
-
 let objects = [];
+let cart = document.querySelectorAll('.addToCart');
 
 async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');
@@ -48,22 +47,46 @@ function showItems() {
   }
 }
 
-// const clickedImage = document.getElementsByClassName('image-item');
 
-// // iteration over arrays or array-like objects is very common
-// // we do this here to add an event listener to each soda button
-// for (let i=0; i<clickedImage.length; i++) {
-//   // sodaBtns[i].addEventListener('click', makeRed);
-//   clickedImage[i].addEventListener('click', viewItem.html);
+// for (let i = 0; i < cart.length; i++){
+//   cart[i].addEventListener('click', () => {
+//       addedToCart(getAllTeddies[i]);
+//   })
 // }
 
-// // This code works too! Why? Because you can "bubble" the event
-// // up from the child button to the parent's listener!
-// // const sodaContainer = document.getElementById('soda-container');
-// // sodaContainer.addEventListener('click', makeRed);
+// function onLoadAddedToCart(){
+//   let productNumber = localStorage.getItem('addedToCart');
 
-// // save elements for buttons and display in variables
-// const coinSlot = document.getElementById('coin-slot');
-// const cashSlot = document.getElementById('cash-slot');
-// const display = document.getElementById('display');
-// const dispense = document.querySelector('.dispense');
+//   if(productNumber){
+//       document.querySelector('.cart span').textContent = productNumber;
+//   }
+// }
+
+// function addedToCart (teddy){
+//   let productNumber = localStorage.getItem('addedToCart');
+
+//   productNumber = parseInt(productNumber);
+
+//   if (productNumber){
+//       localStorage.setItem('addedToCart', productNumber + 1);
+//       document.querySelector('.cart span').textContent = productNumber + 1;
+//   }
+//   else {
+//       localStorage.setItem('addedToCart', 1);
+//       document.querySelector('.cart span').textContent = 1;
+//   }
+//   setItems(teddy)
+// }
+
+// function setItems(teddy){
+//   console.log("Inside of SetItems function");
+//   console.log("my product is", teddy);
+//   teddy.inCart = 1;
+//   let cartItems = {
+//       [teddy._id]: teddy
+//   }
+  
+//   localStorage.setItem("productIncart",cartItems) ;
+// }
+// onLoadAddedToCart();
+
