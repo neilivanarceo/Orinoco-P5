@@ -1,5 +1,5 @@
 let objects = [];
-let cart = document.querySelectorAll('.addToCart');
+let carts = document.querySelectorAll('.addToCart');
 
 async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');
@@ -63,7 +63,6 @@ function showItems() {
             </tr>
         </table>
         `
-
 
   if(container) {
     container.innerHTML += itemsHtml.toString()
