@@ -1,5 +1,5 @@
+const carts = document.querySelectorAll('.addToCart');
 let objects = [];
-let cart = document.querySelectorAll('.addToCart');
 
 async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');
@@ -33,9 +33,9 @@ function showItems() {
                                 </select>
                             </form>
                             <span class="price">Price : $${teddy.price}</span>
-                        <button class="addToCart" type="button">
+                        <a class="addToCart"> 
                         Add to Cart
-                        </button>
+                        </a>
                    
                 </div>
         `
@@ -47,46 +47,52 @@ function showItems() {
   }
 }
 
-
-// for (let i = 0; i < cart.length; i++){
-//   cart[i].addEventListener('click', () => {
-//       addedToCart(getAllTeddies[i]);
-//   })
-// }
-
-// function onLoadAddedToCart(){
-//   let productNumber = localStorage.getItem('addedToCart');
-
-//   if(productNumber){
-//       document.querySelector('.cart span').textContent = productNumber;
-//   }
-// }
-
-// function addedToCart (teddy){
-//   let productNumber = localStorage.getItem('addedToCart');
-
-//   productNumber = parseInt(productNumber);
-
-//   if (productNumber){
-//       localStorage.setItem('addedToCart', productNumber + 1);
-//       document.querySelector('.cart span').textContent = productNumber + 1;
-//   }
-//   else {
-//       localStorage.setItem('addedToCart', 1);
-//       document.querySelector('.cart span').textContent = 1;
-//   }
-//   setItems(teddy)
-// }
-
-// function setItems(teddy){
-//   console.log("Inside of SetItems function");
-//   console.log("my product is", teddy);
-//   teddy.inCart = 1;
-//   let cartItems = {
-//       [teddy._id]: teddy
-//   }
+  // for (let i=0; i < carts.length; i++){
+  //   carts[i].addEventListener('click', () => {
+  //       // addedToCart(getAllTeddies[i]);
+  //       console.log("clicked button");
+  //   })
+  // }
   
-//   localStorage.setItem("productIncart",cartItems) ;
-// }
-// onLoadAddedToCart();
+  // function onLoadAddedToCart(){
+  //   const productNumber = localStorage.getItem('addedToCart');
+  
+  //   if(productNumber){
+  //       document.querySelector('.cart span').textContent = productNumber;
+  //   }
+  // }
+  
+  // function addedToCart (teddy){
+  //   const productNumber = localStorage.getItem('addedToCart');
+  
+  //   productNumber = parseInt(productNumber);
+  
+  //   if (productNumber){
+  //       localStorage.setItem('addedToCart', productNumber + 1);
+  //       document.querySelector('.cart span').textContent = productNumber + 1;
+  //   }
+  //   else {
+  //       localStorage.setItem('addedToCart', 1);
+  //       document.querySelector('.cart span').textContent = 1;
+  //   }
+  //   setItems(teddy)
+  // }
+  
+  // function setItems(teddy){
+  //   console.log("Inside of SetItems function");
+  //   console.log("my product is", teddy);
+  //   teddy.inCart = 1;
+  //   const cartItems = {
+  //       [teddy._id]: teddy
+  //   }
+    
+  //   localStorage.setItem("productIncart",cartItems) ;
+  // }
+  // onLoadAddedToCart();
+
+
+
+
+
+
 
