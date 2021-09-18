@@ -1,11 +1,10 @@
-const carts = document.querySelectorAll('.addToCart');
-let objects = [];
+
+let getAllTeddies = [];
 
 async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');
   
   getAllTeddies = response.data
-  console.log(getAllTeddies)
 
   showItems()
 }
@@ -13,7 +12,7 @@ requestItems();
 
 function showItems() {
   const container = document.querySelector('.container');
- 
+
   const itemsHtml = getAllTeddies.map((teddy,i) => {
     return (
         `
@@ -33,8 +32,8 @@ function showItems() {
                                 </select>
                             </form>
                             <span class="price">Price : $${teddy.price}</span>
-                        <a class="addToCart"> 
-                        Add to Cart
+                        <a> <button class="addToCart" href="#"> 
+                        Add to Cart </button>
                         </a>
                    
                 </div>
@@ -43,17 +42,82 @@ function showItems() {
   })
 
   if(container) {
-    container.innerHTML += itemsHtml.toString()
+    container.innerHTML += itemsHtml.toString().replaceAll(',', '')
   }
-}
 
-  // for (let i=0; i < carts.length; i++){
-  //   carts[i].addEventListener('click', () => {
-  //       // addedToCart(getAllTeddies[i]);
-  //       console.log("clicked button");
-  //   })
-  // }
+    let carts = document.querySelectorAll('.addToCart');  
+    for (let i=0; i < carts.length; i++){
+      carts[i].addEventListener('click', () => {
+        cartNumbers(getAllTeddies[i]);
+        totalCost(getAllTeddies[i]);  
+      })
+  }
+} 
+
+function onLoadAddedToCart(){
+    const itemNumbers = localStorage.getItem('cartNumbers');
   
+    if(itemNumbers){
+        document.querySelector('.cart span').textContent = itemNumbers;
+    }
+  }
+
+
+function cartNumbers (teddy) {
+    let itemNumbers = localStorage.getItem('cartNumbers');
+  
+    itemNumbers = parseInt(itemNumbers);
+
+    if (itemNumbers){
+            localStorage.setItem('cartNumbers', itemNumbers + 1);
+            document.querySelector('.myCart span').textContent = itemNumbers + 1;
+    }
+    else {
+            localStorage.setItem('cartNumbers', 1);
+            document.querySelector('.myCart span').textContent = 1;
+    }
+
+    setItems(teddy)
+  }
+
+  
+function setItems(teddy)  {
+    let cartItems = localStorage.getItem('productsInCart');
+    cartItems = JSON.parse(cartItems);
+
+    if (cartItems != null) {
+        if (cartItems[teddy._id] ==  undefined){
+          cartItems =  {
+          ...cartItems,
+          [teddy._id]: teddy
+          }
+        }
+      cartItems[teddy._id].inCart += 1; 
+    } else 
+    {
+      teddy.inCart = 1;
+      cartItems = {
+        [teddy._id]: teddy
+      }
+    }
+    
+    localStorage.setItem("productsInCart", JSON.stringify 
+    (cartItems));
+  }
+
+  function totalCost(teddy) {
+    const cartCost = localStorage.getItem('totalCost');
+
+      if(cartCost != null) {
+        cartCost = parseInt(cartCost);
+        localStorage.setItem("totalCost", cartCost + teddy.price);
+      } else {
+        localStorage.setItem("totalCost", teddy.price);
+      }
+  }
+
+onLoadAddedToCart();
+
   // function onLoadAddedToCart(){
   //   const productNumber = localStorage.getItem('addedToCart');
   
