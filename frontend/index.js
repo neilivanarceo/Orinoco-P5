@@ -88,8 +88,8 @@ function setItems(teddy)  {
     if (cartItems != null) {
         if (cartItems[teddy._id] ==  undefined){
           cartItems =  {
-          ...cartItems,
-          [teddy._id]: teddy
+              ...cartItems,
+              [teddy._id]: teddy
           }
         }
       cartItems[teddy._id].inCart += 1; 
@@ -106,9 +106,12 @@ function setItems(teddy)  {
   }
 
   function totalCost(teddy) {
-    const cartCost = localStorage.getItem('totalCost');
+    let cartCost = localStorage.getItem('totalCost');
+    
+    console.log("my cartcost is", cartCost)
+    console.log(typeof cartCost);
 
-      if(cartCost != null) {
+      if(cartCost !== null) {
         cartCost = parseInt(cartCost);
         localStorage.setItem("totalCost", cartCost + teddy.price);
       } else {
