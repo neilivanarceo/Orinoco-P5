@@ -120,25 +120,19 @@ header .navigation ul li a:hover {
   text-align: center;
 }
 
-.for-empty-cart {
-  text-align: center;
-  font-size: 30px;
-}
-
-.cart-container {
+.confirmation-container {
   border-collapse: collapse;
   margin: 30px 190px;
-  border: 1px solid black;
 }
 
-.cart-container table {
+.confirmation-container table {
   text-align: left;
   padding: 10px;
   color: black;
   width: 100%;
 }
 
-.cart-container table td {
+.confirmation-container table td {
   padding: 10px 10px;
   border-bottom: 1px solid gray;
   text-align: left;
@@ -146,41 +140,41 @@ header .navigation ul li a:hover {
 }
 
 @media only screen and (max-width: 900px) {
-  .cart-container table td {
+  .confirmation-container table td {
     padding: 0px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .cart-container table td {
+  .confirmation-container table td {
     padding: 0px;
   }
 }
 
-.cart-container table td input {
+.confirmation-container table td input {
   width: 50px;
   height: 30px;
   padding: 5px;
 }
 
-.cart-container table td a {
+.confirmation-container table td a {
   color: red;
   font-size: 12px;
   text-decoration: none;
 }
 
-.cart-container table td a:hover {
+.confirmation-container table td a:hover {
   text-decoration: underline;
 }
 
-.cart-container table td img {
+.confirmation-container table td img {
   height: 80px;
   width: 80px;
   margin-right: 5px;
   border: 1px solid black;
 }
 
-.cart-container table td .cart-detail {
+.confirmation-container table td .cart-detail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -190,7 +184,7 @@ header .navigation ul li a:hover {
   width: 70%;
 }
 
-.cart-container table td:last-child {
+.confirmation-container table td:last-child {
   text-align: center;
 }
 
@@ -224,4 +218,4 @@ header .navigation ul li a:hover {
 .total-price table td:last-child {
   text-align: right;
 }
-/*# sourceMappingURL=cart.css.map */
+/*# sourceMappingURL=confirmation.css.map */

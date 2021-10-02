@@ -25,7 +25,7 @@ currency: 'USD', useGrouping:false}).format(currencyPrice);
                <span class="description">${teddy.description}</span>
                
                    <form> Color:
-                       <select name="color" title="Choose a color">
+                       <select name="color" id="item-color" title="Choose a color">
                            <option value="white">White</option>
                            <option value="brown">Brown</option>
                            <option value="pink">Pink</option>
@@ -79,28 +79,32 @@ function cartNumber (teddy) {
 
 function setItems(teddy)  {
 let cartItems = localStorage.getItem('productsInCart');
+
+let itemColor = document.getElementById('item-color').value;
 cartItems = JSON.parse(cartItems);
 
 if (cartItems !== null) { 
-  if (cartItems[teddy._id] === undefined) {
+  if (cartItems[teddy._id + itemColor] === undefined) {
       cartItems =  {
         ...cartItems,
-        [teddy._id]: teddy
+        [teddy._id + itemColor]: teddy
       }
-    cartItems[teddy._id]['inCart'] = 1; 
+    cartItems[teddy._id + itemColor]['inCart'] = 1; 
+    cartItems[teddy._id + itemColor]['color'] = itemColor;
   } 
   else { 
-    cartItems[teddy._id]['inCart'] += 1; 
+    cartItems[teddy._id + itemColor]['inCart'] += 1; 
+    alert(' Your adding another ${teddy.name} with a color of ${itemcolor}');
     }
 } 
 else {
     cartItems = {
-      [teddy._id]: teddy
+      [teddy._id + itemColor]: teddy
     }
-  console.log(cartItems[teddy._id]);
-
-  cartItems[teddy._id]['inCart'] = 1;   
- 
+                                                                                  // get every value inside productsInCart for alert and itemColor
+  cartItems[teddy._id + itemColor]['color'] = itemColor;
+  cartItems[teddy._id + itemColor]['inCart'] = 1;   
+  console.log(cartItems[teddy._id + itemColor]);
 }
 localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
