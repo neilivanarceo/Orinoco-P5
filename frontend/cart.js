@@ -8,18 +8,18 @@ async function requestItems() {
 }
 
 function displayCart() {
-    
-    let cartItems = localStorage.getItem('productsInCart');
-    cartItems = JSON.parse(cartItems);
+    let itemsInLocalStorage = localStorage.getItem('productsInCart');
+    itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
     let productContainer = document.querySelector('.cart-container');
     let emptyContainer = document.querySelector('.for-empty-cart');
-    let cartCost = localStorage.getItem('totalCost');
-        if (cartItems == undefined){
+    let cartCost = localStorage.getItem('totalCostInCart');
+        if (itemsInLocalStorage == undefined){
             emptyContainer.innerHTML = 'Your Cart is empty!!!';
-        } else
-        {
-            Object.values(cartItems).map(teddy => {
+        } 
+        else {
+            Object.values(itemsInLocalStorage).map(teddy => {
                 const currencyPrice = teddy.price;
+                
                 const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
                 currency: 'USD', useGrouping:false}).format(currencyPrice);
                 productContainer.innerHTML +=
@@ -34,18 +34,19 @@ function displayCart() {
                                 </div>
                             </div>
                         </td>
-                        <td><input id="quantity" type="n" value="${teddy.inCart}" ></td>
+                        <td><input id="quantity" type="n" value="${teddy.quantity}" ></td>
                         <td>
                             <form> 
-                                <select name="color" id="item-color" title="Choose a color">
-                                    <option value="white">White</option>
-                                    <option value="brown">Brown</option>
-                                    <option value="pink">Pink</option>
-                                    <option value="yellow">Yellow</option>
+                                <select name="color" id="item-color"  title="Choose a color">
+                                    <option value="${teddy.color}">${teddy.color}</option>
+                                    <option value="White">White</option>
+                                    <option value="Brown">Brown</option>
+                                    <option value="Pink">Pink</option>
+                                    <option value="Yellow">Yellow</option>
                                 </select>
                             </form>
                         </td>
-                        <td><span> $${teddy.price * teddy.inCart}.00</span></td>
+                        <td><span> $${teddy.price * teddy.quantity}.00</span></td>
                     
                 </table>
                 `

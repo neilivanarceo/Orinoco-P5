@@ -108,7 +108,7 @@ async function requestItems() {
 }
 requestItems()
 
-function showProducts() {
+function showProducts() { 
   const container = document.querySelector('.container');
 
     const itemsHtml = getAllTeddies.map((teddy,i) => {
@@ -137,5 +137,27 @@ function showProducts() {
       }
 }
 
+function AddedToCart(){
+  let itemNumbers = localStorage.getItem('cartNumber');
 
+  if(itemNumbers){
+      document.querySelector('.myCart span').textContent = itemNumbers;
+  }
+}
+
+function cartNumber (teddy) {
+  let itemNumbers = localStorage.getItem('cartNumber');
+
+  itemNumbers = parseInt(itemNumbers);
+
+  if (itemNumbers){
+          localStorage.setItem('cartNumber', itemNumbers + 1);
+          document.querySelector('.myCart span').textContent = itemNumbers + 1;
+  }
+  else {
+          localStorage.setItem('cartNumber', 1);
+          document.querySelector('.myCart span').textContent = 1;
+  }
+} 
+  AddedToCart()
 

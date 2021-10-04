@@ -22,10 +22,10 @@ function showItems() {
                
                    <form> Color:
                        <select name="color" id="item-color" title="Choose a color">
-                           <option value="white">White</option>
-                           <option value="brown">Brown</option>
-                           <option value="pink">Pink</option>
-                           <option value="yellow">Yellow</option>
+                           <option value="White">White</option>
+                           <option value="Brown">Brown</option>
+                           <option value="Pink">Pink</option>
+                           <option value="Yellow">Yellow</option>
                        </select>
                    </form>
                    <span class="price">Price : ${actualPrice}</span>
@@ -42,7 +42,7 @@ function showItems() {
   for (let i=0; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
       // console.log(teddy);
-      quantityInCart(teddy);
+      totalQuantityInCart(teddy);
       totalCostInCart(teddy);  
       
     })
@@ -50,21 +50,21 @@ function showItems() {
 }
 
 function AddedToCart(){
-  let itemCount = localStorage.getItem('quantityInCart');
+  let itemCount = localStorage.getItem('totalQuantityInCart');
   if(itemCount){
       document.querySelector('.myCart span').textContent = itemCount;
   }
 }
 
-function quantityInCart (teddy) {
-  let itemCount = localStorage.getItem('quantityInCart');
+function totalQuantityInCart (teddy) {
+  let itemCount = localStorage.getItem('totalQuantityInCart');
   itemCount = parseInt(itemCount);
   if (itemCount){
-          localStorage.setItem('quantityInCart', itemCount + 1);
+          localStorage.setItem('totalQuantityInCart', itemCount + 1);
           document.querySelector('.myCart span').textContent = itemCount + 1;
   }
   else {
-          localStorage.setItem('quantityInCart', 1);
+          localStorage.setItem('totalQuantityInCart', 1);
           document.querySelector('.myCart span').textContent = 1;
   }
 
@@ -104,6 +104,7 @@ function itemsInLocalStorage(teddy)  {
   }
   localStorage.setItem("productsInCart", JSON.stringify(itemsInLocalStorage));
 }
+
 
 function totalCostInCart(teddy) {
   let cartCost = localStorage.getItem('totalCostInCart');
