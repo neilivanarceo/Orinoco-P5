@@ -124,6 +124,7 @@ function showProducts() {
                       
                     <a href="./viewItem.html?id=${teddy._id}"> <img class="image-item" src="${teddy.imageUrl}"></img>
                       </a>
+                            
                             <span class="teddy-name">${teddy.name}</span>
                             <span class="description">${teddy.description}</span>
                                 <span class="price">Price : ${actualPrice}</span>

@@ -8,18 +8,24 @@ async function requestItems() {
 }
 
 function displayCart() {
-    let itemsInLocalStorage = localStorage.getItem('productsInCart');
-    itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
+    
     let productContainer = document.querySelector('.cart-container');
     let emptyContainer = document.querySelector('.for-empty-cart');
     let cartCost = localStorage.getItem('totalCostInCart');
+    let itemsInLocalStorage = localStorage.getItem('productsInCart');
+    itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
         if (itemsInLocalStorage == undefined){
             emptyContainer.innerHTML = 'Your Cart is empty!!!';
         } 
         else {
             Object.values(itemsInLocalStorage).map(teddy => {
                 const currencyPrice = teddy.price;
-                
+                // var quantityInputs = document.getElementById('quantity-input').value;  
+                // console.log(quantityInputs)
+                //     for (var i=0; i < quantityInputs.length; i++){
+                //         var input = quantityInputs[i]
+                //         input.addEventListener('change', quantityChanged);
+                //         }
                 const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
                 currency: 'USD', useGrouping:false}).format(currencyPrice);
                 productContainer.innerHTML +=
@@ -34,7 +40,7 @@ function displayCart() {
                                 </div>
                             </div>
                         </td>
-                        <td><input id="quantity" type="n" value="${teddy.quantity}" ></td>
+                        <td><input id="quantity-input" type="number" value="${teddy.quantity}"></td>
                         <td>
                             <form> 
                                 <select name="color" id="item-color"  title="Choose a color">
@@ -69,8 +75,11 @@ function displayCart() {
             `
         }
 }
-
 displayCart();
 
-
-
+// function quantityChanged(event){ 
+//     var input = event.target 
+//     if (isNaN(input.value) || input.value <= 0) {
+//     input.value = 1
+//     }
+// }

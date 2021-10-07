@@ -41,78 +41,90 @@ function showItems() {
   let carts = document.querySelectorAll('.addToCart');  
   for (let i=0; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
-      // console.log(teddy);
-      totalQuantityInCart(teddy);
-      totalCostInCart(teddy);  
-      
+      itemsInLocalStorage(teddy)
     })
   }
 }
 
 function AddedToCart(){
-  let itemCount = localStorage.getItem('totalQuantityInCart');
-  if(itemCount){
-      document.querySelector('.myCart span').textContent = itemCount;
+  let itemCountInCart = localStorage.getItem('totalQuantityInCart');
+  if(itemCountInCart){
+      document.querySelector('.myCart span').textContent = itemCountInCart;
   }
 }
+// function totalQuantityInCart () {
+//   // let itemCountInCart = localStorage.getItem('itemsInLocalStorage');
+//   // itemCountInCart = parseInt(itemCountInCart);
+//   if (itemCountInCart){
+//           localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);
+//           document.querySelector('.myCart span').textContent = itemCountInCart + 1;
+//   }
+//   else {
+//           localStorage.setItem('totalQuantityInCart', 1);
+//           document.querySelector('.myCart span').textContent = 1;
+//   }
+// }
 
-function totalQuantityInCart (teddy) {
-  let itemCount = localStorage.getItem('totalQuantityInCart');
-  itemCount = parseInt(itemCount);
-  if (itemCount){
-          localStorage.setItem('totalQuantityInCart', itemCount + 1);
-          document.querySelector('.myCart span').textContent = itemCount + 1;
-  }
-  else {
-          localStorage.setItem('totalQuantityInCart', 1);
-          document.querySelector('.myCart span').textContent = 1;
-  }
-
-  itemsInLocalStorage(teddy)
-}
-
-function itemsInLocalStorage(teddy)  {
+function itemsInLocalStorage(teddy) {
+  let itemCountInCart = localStorage.getItem('totalQuantityInCart');  
+  itemCountInCart = parseInt(itemCountInCart);
+      
+  let cartCost = localStorage.getItem('totalCostInCart');
+  cartCost = parseInt(cartCost);
+ 
   let itemsInLocalStorage = localStorage.getItem('productsInCart');
-  let itemColor = document.getElementById('item-color').value;
-  // colorChoice = localStorage.getItem('productsInCart');
-  // console.log(colorChoice)
   itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
-
+  
+  let itemColor = document.getElementById('item-color').value;
+ 
   if (itemsInLocalStorage !== null) { 
-    if (itemsInLocalStorage[teddy._id + itemColor] === undefined) {
+    if (itemsInLocalStorage[teddy._id + itemColor] === undefined) {           //here where second and the rest item added to cart will work
       itemsInLocalStorage =  {
           ...itemsInLocalStorage,
           [teddy._id + itemColor]: teddy
-        }
-        itemsInLocalStorage[teddy._id + itemColor]['quantity'] = 1; 
-        itemsInLocalStorage[teddy._id + itemColor]['color'] = itemColor;
-        alert('Your adding another bear named ${teddy.name} with a color of ${itemcolor}'); 
+        } 
+
+        localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);           // will add quantity inside cart.
+        document.querySelector('.myCart span').textContent = itemCountInCart + 1; 
+        
+        localStorage.setItem("totalCostInCart", cartCost + teddy.price);            // computing the cost inside the cart
+
+        itemsInLocalStorage[teddy._id + itemColor]['quantity'] = 1;                   // adding quantity info on my product
+
+        itemsInLocalStorage[teddy._id + itemColor]['color'] = itemColor;             // adding color info on my product
+        
+        alert(`Your adding same bear named ${teddy.name} with a new color of ${itemColor}`);  // will alert the customer that he's adding the same bear but different color
     } 
     else { 
-      itemsInLocalStorage[teddy._id + itemColor]['quantity'] += 1; 
-      alert(' Your adding same bear of ${teddyName} with a same color of ${itemcolor}');
+      itemsInLocalStorage[teddy._id + itemColor] == undefined ;         // here when item is already in the cart it will not add the same item. 
+      alert(`This bear named ${teddy.name} with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
     }
   } 
-  else {
+  else {                                                                       // here where first item will add to cart 
     itemsInLocalStorage = {
       [teddy._id + itemColor]: teddy
-    }                                                                      
-    itemsInLocalStorage[teddy._id + itemColor]['color'] = itemColor;        // get every value inside productsInCart for alert and itemColor
-    itemsInLocalStorage[teddy._id + itemColor]['quantity'] = 1;  
-    alert('Your adding bear named ${teddy.name} with acolor of ${itemcolor[i]}'); 
-    console.log(itemsInLocalStorage[teddy._id + itemColor]);
+    }           
+    
+    localStorage.setItem('totalQuantityInCart', 1);                         // counting quantity insinde the cart
+    document.querySelector('.myCart span').textContent = 1;                 
+
+    localStorage.setItem("totalCostInCart", teddy.price);                   // computing the cost inside the cart
+
+    itemsInLocalStorage[teddy._id + itemColor]['color'] = itemColor;        // adding color info on my product
+
+    itemsInLocalStorage[teddy._id + itemColor]['quantity'] = 1;              // adding quantity info on my product
+
+    alert(`Your adding bear named ${teddy.name} with a color of ${itemColor} in your cart`);      //will alert the customer that his adding a new bear
   }
   localStorage.setItem("productsInCart", JSON.stringify(itemsInLocalStorage));
 }
-
-
-function totalCostInCart(teddy) {
-  let cartCost = localStorage.getItem('totalCostInCart');
-    if(cartCost != null) {
-      cartCost = parseInt(cartCost);
-      localStorage.setItem("totalCostInCart", cartCost + teddy.price);
-    } else {
-      localStorage.setItem("totalCostInCart", teddy.price);
-    }
-}
+// function totalCostInCart(teddy) {
+//   let cartCost = localStorage.getItem('totalCostInCart');
+//     if(cartCost != null) {
+//       cartCost = parseInt(cartCost);
+//       localStorage.setItem("totalCostInCart", cartCost + teddy.price);
+//     } else {
+//       localStorage.setItem("totalCostInCart", teddy.price);
+//     }
+// }
 AddedToCart();
