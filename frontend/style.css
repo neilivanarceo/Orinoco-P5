@@ -183,7 +183,16 @@ h1 {
   cursor: pointer;
 }
 
-.container .teddy-item .teddy-name {
+.container .teddy-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.container .teddy-item a:hover {
+  text-decoration: underline;
+}
+
+.container .teddy-item a .teddy-name {
   margin: 10px;
   font-size: 25px;
 }

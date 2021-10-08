@@ -144,11 +144,19 @@ h1 {
       cursor: pointer;
     }
 
-    .teddy-name {
-      margin: 10px;
-      font-size: 25px;
-    }
+    a {
+      text-decoration: none;
+      color: black;
 
+      &:hover {
+        text-decoration: underline;
+      }
+
+      .teddy-name {
+        margin: 10px;
+        font-size: 25px;
+      }
+    }
     .description {
       margin: 10px;
     }

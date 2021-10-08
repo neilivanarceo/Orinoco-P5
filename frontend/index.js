@@ -113,7 +113,7 @@ function showProducts() {
 
     const itemsHtml = getAllTeddies.map((teddy,i) => {
 
-      let currencyPrice = teddy.price;
+      let currencyPrice = teddy.price / 100;
     
       const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
       currency: 'USD', useGrouping:false}).format(currencyPrice);
@@ -121,16 +121,12 @@ function showProducts() {
         return(
           `
             <div class="teddy-item"> 
-                      
-                    <a href="./viewItem.html?id=${teddy._id}"> <img class="image-item" src="${teddy.imageUrl}"></img>
-                      </a>
-                            
-                            <span class="teddy-name">${teddy.name}</span>
-                            <span class="description">${teddy.description}</span>
-                                <span class="price">Price : ${actualPrice}</span>
-                          
-                    </div>
-                `
+              <a href="./viewItem.html?id=${teddy._id}"> <img class="image-item" src="${teddy.imageUrl}"></img></a>             
+              <a href="./viewItem.html?id=${teddy._id}">  <span class="teddy-name">${teddy.name}</span></a>
+              <span class="description">${teddy.description}</span>
+              <span class="price">Price : ${actualPrice}</span> 
+            </div>
+          `
         )
     })
       if(container) {
@@ -138,27 +134,27 @@ function showProducts() {
       }
 }
 
-function AddedToCart(){
+function AddedToCart(){                                 
   let itemCount = localStorage.getItem('totalQuantityInCart');
 
   if(itemCount){
       document.querySelector('.myCart span').textContent = itemCount;
   }
 }
+AddedToCart()
+// function totalQuantityInCart (teddy) {
+//   let itemCount = localStorage.getItem('totalQuantityInCart');
 
-function totalQuantityInCart (teddy) {
-  let itemCount = localStorage.getItem('totalQuantityInCart');
+//   itemCount = parseInt(itemCount);
 
-  itemCount = parseInt(itemCount);
-
-  if (itemCount){
-          localStorage.setItem('totalQuantityInCart', itemCount + 1);
-          document.querySelector('.myCart span').textContent = itemCount + 1;
-  }
-  else {
-          localStorage.setItem('totalQuantityInCart', 1);
-          document.querySelector('.myCart span').textContent = 1;
-  }
-} 
-  AddedToCart()
+//   if (itemCount){
+//           localStorage.setItem('totalQuantityInCart', itemCount + 1);
+//           document.querySelector('.myCart span').textContent = itemCount + 1;
+//   }
+//   else {
+//           localStorage.setItem('totalQuantityInCart', 1);
+//           document.querySelector('.myCart span').textContent = 1;
+//   }
+// } 
+ 
 

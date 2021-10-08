@@ -19,7 +19,8 @@ function displayCart() {
         } 
         else {
             Object.values(itemsInLocalStorage).map(teddy => {
-                const currencyPrice = teddy.price;
+                const currencyPrice = teddy.price / 100;
+               
                 // var quantityInputs = document.getElementById('quantity-input').value;  
                 // console.log(quantityInputs)
                 //     for (var i=0; i < quantityInputs.length; i++){
@@ -52,7 +53,7 @@ function displayCart() {
                                 </select>
                             </form>
                         </td>
-                        <td><span> $${teddy.price * teddy.quantity}.00</span></td>
+                        <td><span> $${(teddy.price * teddy.quantity) / 100}.00</span></td>
                     
                 </table>
                 `
