@@ -5,10 +5,10 @@ async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');
   teddy = response.data
   displayCart()
+ 
 }
 
 function displayCart() {
-    
     let productContainer = document.querySelector('.cart-container');
     let emptyContainer = document.querySelector('.for-empty-cart');
     let cartCost = localStorage.getItem('totalCostInCart');
@@ -20,13 +20,6 @@ function displayCart() {
         else {
             Object.values(itemsInLocalStorage).map(teddy => {
                 const currencyPrice = teddy.price / 100;
-               
-                // var quantityInputs = document.getElementById('quantity-input').value;  
-                // console.log(quantityInputs)
-                //     for (var i=0; i < quantityInputs.length; i++){
-                //         var input = quantityInputs[i]
-                //         input.addEventListener('change', quantityChanged);
-                //         }
                 const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
                 currency: 'USD', useGrouping:false}).format(currencyPrice);
                 productContainer.innerHTML +=
@@ -41,7 +34,11 @@ function displayCart() {
                                 </div>
                             </div>
                         </td>
-                        <td><input id="quantity-input" type="number" value="${teddy.quantity}"></td>
+                        <td id="quantity-input">
+                        <ion-icon class="decrease" name="caret-back-outline"></ion-icon>
+                                <span> 1 <span>
+                            <i class="fas fa-caret-right"></i>
+                        </td>
                         <td>
                             <form> 
                                 <select name="color" id="item-color"  title="Choose a color">
@@ -74,9 +71,11 @@ function displayCart() {
             productContainer.innerHTML += `
             <a href="confirmation.html">Buy Now</a>
             `
+            
         }
+        manageQuantity()
 }
-displayCart();
+
 
 // function quantityChanged(event){ 
 //     var input = event.target 
@@ -84,3 +83,15 @@ displayCart();
 //     input.value = 1
 //     }
 // }
+
+function manageQuantity() {
+    let decreaseButtons = document.querySelectorAll('.decrease');
+    // let increaseButton = document.querySelectorAll('.fas fa-caret-right');
+    for (let i=0; i < decreaseButtons.length; i++) {
+        decreaseButtons[i] = addEventListener('click', () => {
+        console.log("decrease button")
+        })
+    }
+}
+
+displayCart();

@@ -90,6 +90,7 @@ function itemsInLocalStorage(teddy) {
         localStorage.setItem("totalCostInCart", cartCostFromLocalStorage + teddy.price / 100);            // computing the cost inside the cart
 
         itemsInLocalStorage[teddy._id + itemColor]['quantity'] = 1;                   // adding quantity info on my product
+        quantity = parseInt(quantity);
 
         itemsInLocalStorage[teddy._id + itemColor]['color'] = itemColor;             // adding color info on my product
         
@@ -113,6 +114,7 @@ function itemsInLocalStorage(teddy) {
     itemsInLocalStorage[teddy._id + itemColor]['color'] = itemColor;        // adding color info on my product
 
     itemsInLocalStorage[teddy._id + itemColor]['quantity'] = 1;              // adding quantity info on my product
+    
 
     alert(`Your adding bear named ${teddy.name} with a color of ${itemColor} in your cart`);      //will alert the customer that his adding a new bear
   }
