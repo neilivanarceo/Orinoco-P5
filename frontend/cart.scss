@@ -92,17 +92,21 @@ header {
   margin: 30px 190px;
   border: 1px solid black;
 
-  table {
+  .parent {
     text-align: left;
     padding: 10px;
     color: black;
     width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
 
-    td {
-      padding: 10px 10px;
-      border-bottom: 1px solid gray;
-      text-align: left;
-      width: 20%;
+    .cart-detail {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px 2px;
+      width: 8%;
+      border: 1px solid black;
 
       @include responsive(tab) {
         padding: 0px;
@@ -111,16 +115,11 @@ header {
         padding: 0px;
       }
 
-      input {
-        width: 50px;
-        height: 30px;
-        padding: 5px;
-      }
-
       a {
         color: red;
         font-size: 12px;
         text-decoration: none;
+        cursor: pointer;
 
         &:hover {
           text-decoration: underline;
@@ -129,20 +128,22 @@ header {
 
       img {
         height: 80px;
-        width: 80px;
+        width: 100%;
         margin-right: 5px;
         border: 1px solid black;
       }
-
-      .cart-detail {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 10px 2px;
-        width: 70%;
-      }
     }
-    td:last-child {
-      text-align: center;
+
+    .quantity-input {
+      color: black;
+    }
+
+    form {
+      color: black;
+    }
+
+    #subtotal {
+      color: black;
     }
   }
 }
@@ -150,20 +151,4 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-
-  table {
-    border-top: 2px solid black;
-    max-width: 250px;
-
-    @include responsive(tab) {
-      padding: 0px;
-    }
-    @include responsive(phone) {
-      padding: 0px;
-    }
-
-    td:last-child {
-      text-align: right;
-    }
-  }
 }

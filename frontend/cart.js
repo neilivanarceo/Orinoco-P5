@@ -1,11 +1,8 @@
 let objects = [];
-let carts = document.querySelectorAll('.addToCart');
-
 async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');
   teddy = response.data
   displayCart()
- 
 }
 
 function displayCart() {
@@ -24,74 +21,126 @@ function displayCart() {
                 currency: 'USD', useGrouping:false}).format(currencyPrice);
                 productContainer.innerHTML +=
                 `
-                <table>
-                        <td> 
-                            <div class="cart-detail"><a href="./viewItem.html?id=${teddy._id}"> <img src="${teddy.imageUrl}"></a></img>
-                                <div>
-                                    <p> ${teddy.name}</p>
-                                    <small> Price: ${actualPrice} </small><br>
-                                    <a href="">Remove</a> 
-                                </div>
-                            </div>
-                        </td>
-                        <td id="quantity-input">
+                <div class="parent">
+                    <div class="cart-detail"><a href="./viewItem.html?id=${teddy._id}"> 
+                        <img src="${teddy.imageUrl}"></a></img>
+                        <p>${teddy.name}</p>
+                        <small> Price:$<span class="item-price"> ${currencyPrice}</span>.00 </small><br>
+                        <a class="delete-button">Remove</a> 
+                    </div>
+                        
+                    <div class="quantity-input">
                         <ion-icon class="decrease" name="caret-back-outline"></ion-icon>
-                                <span> 1 <span>
-                            <i class="fas fa-caret-right"></i>
-                        </td>
-                        <td>
-                            <form> 
-                                <select name="color" id="item-color"  title="Choose a color">
-                                    <option value="${teddy.color}">${teddy.color}</option>
-                                    <option value="White">White</option>
-                                    <option value="Brown">Brown</option>
-                                    <option value="Pink">Pink</option>
-                                    <option value="Yellow">Yellow</option>
-                                </select>
-                            </form>
-                        </td>
-                        <td><span> $${(teddy.price * teddy.quantity) / 100}.00</span></td>
-                    
-                </table>
+                        <span id="quantity"> ${teddy.quantity}</span>
+                        <ion-icon class="increase" name="caret-forward-outline"></ion-icon>
+                    </div>
+
+                    <form> 
+                        <select name="color" id="item-color"  title="Choose a color">
+                            <option value="${teddy.color}">${teddy.color}</option>
+                            <option value="White">White</option>
+                            <option value="Brown">Brown</option>
+                            <option value="Pink">Pink</option>
+                            <option value="Yellow">Yellow</option>
+                        </select>
+                    </form>
+                        
+                    <div id="subtotal"><span>$${(teddy.price * teddy.quantity) / 100}.00</span>
+                    </div>
+                </div>    
                 `
-            })
+                
+            });
 
             productContainer.innerHTML +=
             `
                 <div class="total-price">
-                    <table>
-                        <tr>
-                            <td>Total</td>
-                            <td>$${cartCost}.00</td>
-                        </tr>
-                    </table>
+                    Total : ${cartCost}.00
                 </div>
-            `   
+            `   ;
             
-            productContainer.innerHTML += `
-            <a href="confirmation.html">Buy Now</a>
-            `
-            
+            // productContainer.innerHTML += `
+            // <a href="confirmation.html">Buy Now</a>
+            // `
         }
-        manageQuantity()
 }
+displayCart()
 
+function deleteItemFromCart() {
+    let deleteButton = document.querySelectorAll('.cart-detail a');
 
-// function quantityChanged(event){ 
-//     var input = event.target 
-//     if (isNaN(input.value) || input.value <= 0) {
-//     input.value = 1
-//     }
-// }
+    let itemCountInCart = localStorage.getItem('totalQuantityInCart'); 
+    itemCountInCart = parseInt(itemCountInCart);
 
-function manageQuantity() {
-    let decreaseButtons = document.querySelectorAll('.decrease');
-    // let increaseButton = document.querySelectorAll('.fas fa-caret-right');
-    for (let i=0; i < decreaseButtons.length; i++) {
-        decreaseButtons[i] = addEventListener('click', () => {
-        console.log("decrease button")
-        })
+    let itemsInLocalStorage = localStorage.getItem('productsInCart');
+    itemsInLocalStorage = JSON.parse(itemsInLocalStorage); 
+    
+    let currentName = '';
+    let currentColor = '';
+    let currentProduct = '';
+
+    for (let i=0; i < deleteButton.length; i++) {
+        deleteButton[i].addEventListener('click', () => {
+           
+            currentName = deleteButton[i].parentElement.querySelector('p').textContent;
+            currentColor = deleteButton[i].parentElement.parentElement.nextElementSibling.nextElementSibling.querySelector('#item-color').value;
+            currentProduct = currentName + currentColor;
+            console.log(currentProduct);
+
+            console.log(itemsInLocalStorage[currentProduct].name + itemsInLocalStorage[currentProduct].quantity)
+            localStorage.setItem('totalQuantityInCart', itemCountInCart - itemsInLocalStorage[currentProduct].quantity)
+
+            delete itemsInLocalStorage[currentProduct];
+            localStorage.setItem('productsInCart', JSON.stringify(itemsInLocalStorage)); 
+
+          
+        });
     }
 }
+deleteItemFromCart()
 
-displayCart();
+function manageQuantity() {
+    let itemsInLocalStorage = localStorage.getItem('productsInCart');
+    itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
+    let decreaseButtons = document.querySelectorAll('.decrease');
+    let increaseButtons = document.querySelectorAll('.increase');
+   
+    let currentQuantity = 0;
+    let currentName = '';
+    let currentColor = '';
+    let currentProduct = '';
+    
+        for (let i=0; i < decreaseButtons.length; i++) {
+            decreaseButtons[i].addEventListener('click', () => {
+                currentQuantity = decreaseButtons[i].parentElement.querySelector('span').textContent;
+                currentName = decreaseButtons[i].parentElement.previousElementSibling.querySelector('p').textContent;
+                currentColor = decreaseButtons[i].parentElement.nextElementSibling.querySelector('#item-color').value;
+                currentProduct = currentName + currentColor;
+                console.log(itemsInLocalStorage[currentProduct].quantity);
+
+                localStorage.setItem('productsInCart', JSON.stringify(itemsInLocalStorage)); 
+                itemsInLocalStorage[currentProduct].quantity = itemsInLocalStorage[currentProduct].quantity - 1;
+            })
+        }
+
+        for (let i=0; i < increaseButtons.length; i++) {
+            increaseButtons[i].addEventListener('click', () => {
+                currentQuantity = increaseButtons[i].parentElement.parentElement.querySelector('span').textContent;
+                currentName = decreaseButtons[i].parentElement.previousElementSibling.querySelector('p').textContent;
+                currentColor = decreaseButtons[i].parentElement.nextElementSibling.querySelector('#item-color').value
+                currentProduct = currentName + currentColor;
+                console.log(currentProduct)
+            })
+        }       
+}  
+
+manageQuantity()
+
+
+
+// function totalCostInCart() {    
+    
+//     console.log(getSubtotal)
+    
+// }
+// totalCostInCart()

@@ -158,3 +158,33 @@ AddedToCart()
 // } 
  
 
+
+// function manageQuantity() {
+//   let decreaseButtons = document.querySelectorAll('.decrease');
+//   let increaseButtons = document.querySelectorAll('.increase');
+//   // let itemsInCart = localStorage.getItem('productsInCart');
+//   // itemsInCart = JSON.parse(itemsInCart)
+  
+
+//   for (let i=0; i < decreaseButtons.length; i++) {
+//       decreaseButtons[i].addEventListener('click', () => {
+//       // currentQuantity = decreaseButtons[i].parentElement.querySelector('span').textContent;
+//       })
+//   }
+
+//   for (let i=0; i < increaseButtons.length; i++) {
+//       increaseButtons[i].addEventListener('click', () => {
+//       // currentQuantity = increaseButtons[i].parentElement.querySelector('span').textContent;
+//       console.log(increaseButtons)
+//       })
+//   }   
+// }
+
+
+// <td id="quantity-input">
+// <ion-icon class="decrease" name="caret-back-outline"></ion-icon>
+
+//     <span> ${teddy.quantity} <span>
+
+// <ion-icon class="increase" name="caret-forward-outline"></ion-icon>
+// </td>
