@@ -42,7 +42,7 @@ function showItem() {
   for (let i=0; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
       itemsInLocalStorage(teddy)
-      
+    
     })
   }
 }
@@ -53,9 +53,10 @@ function AddedToCart(){                                                 // this 
       document.querySelector('.myCart span').textContent = itemCountInCart;
   }
 }
+
 // function totalQuantityInCart () {
-//   // let itemCountInCart = localStorage.getItem('itemsInLocalStorage');
-//   // itemCountInCart = parseInt(itemCountInCart);
+//   let itemCountInCart = localStorage.getItem('totalQuantityInCart');
+//   itemCountInCart = parseInt(itemCountInCart);
 //   if (itemCountInCart){
 //           localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);
 //           document.querySelector('.myCart span').textContent = itemCountInCart + 1;
@@ -65,6 +66,8 @@ function AddedToCart(){                                                 // this 
 //           document.querySelector('.myCart span').textContent = 1;
 //   }
 // }
+
+
 
 function itemsInLocalStorage(teddy) {
   
@@ -121,16 +124,20 @@ function itemsInLocalStorage(teddy) {
     alert(`Your adding bear named ${teddy.name} with a color of ${itemColor} in your cart`);      //will alert the customer that his adding a new bear
   }
   localStorage.setItem("productsInCart", JSON.stringify(itemsInLocalStorage));
+  // totalCostInCart(teddy)
+  // totalQuantityInCart ()
 }
+
+
+
 // function totalCostInCart(teddy) {
 //   let cartCost = localStorage.getItem('totalCostInCart');
-//     if(cartCost != null) {
+//   if (itemsInLocalStorage[teddy.name + itemColor] === undefined) {
 //       cartCost = parseInt(cartCost);
-//       localStorage.setItem("totalCostInCart", cartCost + teddy.price);
+//       localStorage.setItem("totalCostInCart", cartCost + teddy.price / 100);
 //     } else {
-//       localStorage.setItem("totalCostInCart", teddy.price);
+//       localStorage.setItem("totalCostInCart", teddy.price / 100);
 //     }
 // }
+
 AddedToCart();
-
-

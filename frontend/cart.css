@@ -97,27 +97,16 @@ header .navigation ul li a:hover {
 
 .heading-title {
   border-collapse: collapse;
-  margin: 30px 200px;
+  margin: 30px 350px;
   border: 1px solid black;
-}
-
-.heading-title table {
-  text-align: left;
-  padding: 10px;
-  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px;
   background-color: gray;
-  width: 100%;
-}
-
-.heading-title table th {
-  text-align: left;
-  padding: 10px;
-  color: black;
-  background-color: gray;
-}
-
-.heading-title table th:last-child {
-  text-align: center;
 }
 
 .for-empty-cart {
@@ -127,13 +116,30 @@ header .navigation ul li a:hover {
 
 .cart-container {
   border-collapse: collapse;
-  margin: 30px 190px;
-  border: 1px solid black;
+  margin: 30px 350px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .cart-container {
+    margin: 30px 300px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .cart-container {
+    margin: 30px 150px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cart-container {
+    margin: 30px 50px;
+  }
 }
 
 .cart-container .parent {
   text-align: left;
-  padding: 10px;
+  padding: 5px 40px;
   color: black;
   width: 100%;
   border: 1px solid black;
@@ -145,6 +151,24 @@ header .navigation ul li a:hover {
           justify-content: space-between;
 }
 
+@media only screen and (max-width: 1400px) {
+  .cart-container .parent {
+    padding: 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .cart-container .parent {
+    padding: 5px 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cart-container .parent {
+    padding: 5px 5px;
+  }
+}
+
 .cart-container .parent .cart-detail {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -152,19 +176,25 @@ header .navigation ul li a:hover {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 10px 2px;
-  width: 8%;
+  width: 15%;
   border: 1px solid black;
+}
+
+@media only screen and (max-width: 1400px) {
+  .cart-container .parent .cart-detail {
+    margin: 5px 2px;
+  }
 }
 
 @media only screen and (max-width: 900px) {
   .cart-container .parent .cart-detail {
-    padding: 0px;
+    margin: 5px 2px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .cart-container .parent .cart-detail {
-    padding: 0px;
+    margin: 5px 2px;
   }
 }
 
@@ -188,14 +218,32 @@ header .navigation ul li a:hover {
 
 .cart-container .parent .quantity-input {
   color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .cart-container .parent form {
   color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .cart-container .parent #subtotal {
   color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .total-price {
@@ -206,5 +254,12 @@ header .navigation ul li a:hover {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 100%;
+  border: 1px solid black;
+}
+
+.total-price .total {
+  height: 100%;
+  margin: 40px;
+  background-color: blanchedalmond;
 }
 /*# sourceMappingURL=cart.css.map */

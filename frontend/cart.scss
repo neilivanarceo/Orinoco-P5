@@ -60,26 +60,12 @@ header {
 
 .heading-title {
   border-collapse: collapse;
-  margin: 30px 200px;
+  margin: 30px 350px;
   border: 1px solid black;
-
-  table {
-    text-align: left;
-    padding: 10px;
-    color: black;
-    background-color: gray;
-    width: 100%;
-
-    th {
-      text-align: left;
-      padding: 10px;
-      color: black;
-      background-color: gray;
-    }
-    th:last-child {
-      text-align: center;
-    }
-  }
+  display: flex;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: gray;
 }
 
 .for-empty-cart {
@@ -89,30 +75,52 @@ header {
 
 .cart-container {
   border-collapse: collapse;
-  margin: 30px 190px;
-  border: 1px solid black;
+  margin: 30px 350px;
+
+  @include responsive(laptop) {
+    margin: 30px 300px;
+  }
+  @include responsive(tab) {
+    margin: 30px 150px;
+  }
+  @include responsive(phone) {
+    margin: 30px 50px;
+  }
 
   .parent {
     text-align: left;
-    padding: 10px;
+    padding: 5px 40px;
     color: black;
     width: 100%;
     border: 1px solid black;
     display: flex;
     justify-content: space-between;
 
+    @include responsive(laptop) {
+      padding: 5px 10px;
+    }
+    @include responsive(tab) {
+      padding: 5px 10px;
+    }
+    @include responsive(phone) {
+      padding: 5px 5px;
+    }
+
     .cart-detail {
       display: flex;
       flex-wrap: wrap;
       margin: 10px 2px;
-      width: 8%;
+      width: 15%;
       border: 1px solid black;
 
+      @include responsive(laptop) {
+        margin: 5px 2px;
+      }
       @include responsive(tab) {
-        padding: 0px;
+        margin: 5px 2px;
       }
       @include responsive(phone) {
-        padding: 0px;
+        margin: 5px 2px;
       }
 
       a {
@@ -136,14 +144,20 @@ header {
 
     .quantity-input {
       color: black;
+      display: flex;
+      align-items: center;
     }
 
     form {
       color: black;
+      display: flex;
+      align-items: center;
     }
 
     #subtotal {
       color: black;
+      display: flex;
+      align-items: center;
     }
   }
 }
@@ -151,4 +165,11 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  border: 1px solid black;
+
+  .total {
+    height: 100%;
+    margin: 40px;
+    background-color: blanchedalmond;
+  }
 }
