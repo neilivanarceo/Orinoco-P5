@@ -14,7 +14,6 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 20px 150px;
-  border: 1px solid black;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -261,5 +260,101 @@ header .navigation ul li a:hover {
   height: 100%;
   margin: 40px;
   background-color: blanchedalmond;
+}
+
+#checkout-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+#checkout-container .checkout {
+  height: 100%;
+  margin: 20px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px;
+}
+
+#checkout-container .checkout:hover {
+  background-color: blanchedalmond;
+}
+
+#checkout-container .checkout a {
+  text-decoration: none;
+  color: black;
+}
+
+#input-form-container {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  justify-content: center;
+}
+
+#input-form-container h2 {
+  color: black;
+  border: 1px solid black;
+  width: 40%;
+}
+
+#input-form-container .forms {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 0px 2px 20px #d3cfcf;
+          box-shadow: 0px 2px 20px #d3cfcf;
+  border: 1px solid black;
+  width: 30%;
+}
+
+#input-form-container .forms .form-group {
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#input-form-container .forms .form-group input,
+#input-form-container .forms .form-group textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 15px;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+#input-form-container .forms textarea {
+  resize: vertical;
+}
+
+#input-form-container .forms button[type="submit"] {
+  width: 90%;
+  padding: 10px;
+  margin: 30px 20px 30px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  font-size: 18px;
+  background-color: #f3976c;
+  -webkit-transition: 0.3s ease background-color;
+  transition: 0.3s ease background-color;
+  color: black;
+  cursor: pointer;
+}
+
+#input-form-container .forms button[type="submit"]:hover {
+  background-color: #b68166;
 }
 /*# sourceMappingURL=cart.css.map */

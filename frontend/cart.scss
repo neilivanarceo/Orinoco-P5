@@ -11,7 +11,6 @@ header {
   justify-content: space-between;
   margin: 20px 150px;
   @include margin30;
-  border: 1px solid black;
 
   .heading-name {
     margin: 0px;
@@ -171,5 +170,86 @@ header {
     height: 100%;
     margin: 40px;
     background-color: blanchedalmond;
+  }
+}
+
+#checkout-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .checkout {
+    height: 100%;
+    margin: 20px;
+    border: 1px solid black;
+    background-color: white;
+    padding: 10px;
+
+    &:hover {
+      background-color: blanchedalmond;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
+
+#input-form-container {
+  display: none;
+  justify-content: center;
+  width: 100%;
+  justify-content: center;
+
+  h2 {
+    color: black;
+    border: 1px solid black;
+    width: 40%;
+  }
+
+  .forms {
+    color: black;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    box-shadow: 0px 2px 20px rgb(211, 207, 207);
+    border: 1px solid black;
+    width: 30%;
+
+    .form-group {
+      margin-top: 10px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 5px;
+      font-size: 15px;
+      margin-top: 5px;
+      border-radius: 8px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      width: 90%;
+      padding: 10px;
+      margin: 30px 20px 30px 20px;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-size: 18px;
+      background-color: #f3976c;
+      transition: 0.3s ease background-color;
+      color: black;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #b68166;
+    }
   }
 }

@@ -6,16 +6,18 @@ async function requestItems() {
 
 function displayCart() {
     let productContainer = document.querySelector('.cart-container');
-   
+    let formContainer = document.querySelector('.form-container');
     let emptyContainer = document.querySelector('.for-empty-cart');
     let itemsInLocalStorage = localStorage.getItem('productsInCart');
     let cartCost = localStorage.getItem('totalCostInCart');
     itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
     if (cartCost == 0 || itemsInLocalStorage == undefined) {
         productContainer.innerHTML = '';
+        formContainer.innerHTML ='';
         emptyContainer.innerHTML = 'Your Cart is empty!!!';
     } 
         else {
+            
             productContainer.innerHTML = '';
             Object.values(itemsInLocalStorage).map(teddy => {
                 const currencyPrice = teddy.price / 100;
@@ -59,16 +61,72 @@ function displayCart() {
                 <div class="total-price">
                   <div class="total">  Total Cost : $${cartCost}.00</div>
                 </div>
+                
+            `;  
+            
+            productContainer.innerHTML +=
+            `
+                <div id="checkout-container" >
+                  <div class="checkout" onclick="showForm()"><a href="#input-form-container"> Checkout</a></div>
+                </div>
             `   ;
+
+           
+            formContainer.innerHTML +=
+            `
+            <div id="input-form-container">
+                
+                <div class="forms">
+                    <form id="input-information" action="post">
+
+                        <div class="form-group">
+                            <label for="firstname"> Name : </label>
+                            <input type="text" id="firstname" placeholder="First Name"  required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastname"> Name : </label>
+                            <input type="text" id="lastname" placeholder="Last Name"  required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact">Contact : </label>
+                        <input type="contact" id="contact" tabindex="0"   placeholder="Phone Number"  required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address"> Address : </label>
+                        <input type="address" id="address" placeholder="Home number and Street"  required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city"> City : </label>
+                        <input type="city" id="city" placeholder="City Address"  required>
+                        </div>
+                        
+                        <button class="submit" method="post" type="submit">
+                            Purchase
+                        </button>
+                    </form>
+                </div>   
+            </div>    
+            `;
+            
         }
         
 }
-
 displayCart()
 
+
+
+function showForm() {
+    document.getElementById("input-form-container").style.display="flex";
+    document.getElementById("checkout-container").style.display="none";
+}
+
+
 function deleteItemFromCart() {
-    
-    let deleteButton = document.querySelectorAll('.cart-detail a');
+    let deleteButton = document.querySelectorAll('.delete-button');
 
     let itemCountInCart = localStorage.getItem('totalQuantityInCart'); 
     itemCountInCart = parseInt(itemCountInCart);
@@ -97,12 +155,12 @@ function deleteItemFromCart() {
 
             delete itemsInLocalStorage[currentProduct];
             localStorage.setItem('productsInCart', JSON.stringify(itemsInLocalStorage)); 
-displayCart()
-         
+            displayCart()
         });
     }
 }
 deleteItemFromCart()
+
 
 function manageQuantity() {
     let itemsInLocalStorage = localStorage.getItem('productsInCart');
@@ -138,7 +196,6 @@ function manageQuantity() {
             })
         }       
 }  
-
 manageQuantity()
 
 
