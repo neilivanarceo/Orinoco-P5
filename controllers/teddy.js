@@ -43,7 +43,7 @@ exports.getOneTeddy = (req, res, next) => {
  *   city: string,
  *   email: string
  * }
- * products: [string] <-- array of product _id
+ * products: [string] <-- array of product _id  
  *
  */
 exports.orderTeddies = (req, res, next) => {

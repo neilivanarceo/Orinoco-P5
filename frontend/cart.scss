@@ -9,7 +9,7 @@
 header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 150px;
+  margin: 20px 300px;
   @include margin30;
 
   .heading-name {
@@ -59,28 +59,39 @@ header {
 
 .heading-title {
   border-collapse: collapse;
-  margin: 30px 350px;
+  margin: 0px 350px;
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
-  padding: 40px;
-  background-color: gray;
+  padding: 30px 50px;
+  background-color: rgb(177, 175, 175);
+
+  @include responsive(laptop) {
+    margin: 30px 200px;
+  }
+  @include responsive(tab) {
+    margin: 30px 150px;
+  }
+  @include responsive(phone) {
+    margin: 30px 50px;
+  }
 }
 
 .for-empty-cart {
   text-align: center;
   font-size: 30px;
+  margin-top: 50px;
 }
 
 .cart-container {
   border-collapse: collapse;
-  margin: 30px 350px;
+  margin: 0px 350px;
 
   @include responsive(laptop) {
-    margin: 30px 300px;
+    margin: 30px 200px;
   }
   @include responsive(tab) {
-    margin: 30px 150px;
+    margin: 30px 100px;
   }
   @include responsive(phone) {
     margin: 30px 50px;
@@ -111,6 +122,7 @@ header {
       margin: 10px 2px;
       width: 15%;
       border: 1px solid black;
+      padding: 3px;
 
       @include responsive(laptop) {
         margin: 5px 2px;
@@ -147,16 +159,18 @@ header {
       align-items: center;
     }
 
-    form {
+    .item-color {
       color: black;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
 
     #subtotal {
       color: black;
       display: flex;
       align-items: center;
+      margin-right: 20px;
     }
   }
 }
@@ -168,8 +182,9 @@ header {
 
   .total {
     height: 100%;
-    margin: 40px;
-    background-color: blanchedalmond;
+    margin: 20px;
+    background-color: rgb(177, 175, 175);
+    padding: 15px;
   }
 }
 
@@ -186,7 +201,7 @@ header {
     padding: 10px;
 
     &:hover {
-      background-color: blanchedalmond;
+      background-color: rgb(177, 175, 175);
     }
     a {
       text-decoration: none;
@@ -216,10 +231,31 @@ header {
     border: 1px solid black;
     width: 30%;
 
+    @include responsive(laptop) {
+      width: 40%;
+    }
+    @include responsive(tab) {
+      width: 50%;
+    }
+    @include responsive(phone) {
+      width: 60%;
+    }
+
     .form-group {
-      margin-top: 10px;
-      margin-left: 20px;
-      margin-right: 20px;
+      // margin-top: 10px;
+      // margin-left: 20px;
+      // margin-right: 20px;
+      margin: 10px 20px 10px 20px;
+
+      @include responsive(laptop) {
+        margin: 10px 10px 10px 10px;
+      }
+      @include responsive(tab) {
+        margin: 10px 10px 10px 10px;
+      }
+      @include responsive(phone) {
+        margin: 5px 5px 5px 5px;
+      }
     }
 
     .form-group input,
@@ -235,21 +271,21 @@ header {
       resize: vertical;
     }
 
-    button[type="submit"] {
+    #submit-button {
       width: 90%;
       padding: 10px;
       margin: 30px 20px 30px 20px;
       border-radius: 5px;
       margin-top: 10px;
       font-size: 18px;
-      background-color: #f3976c;
+      background-color: rgb(177, 175, 175);
       transition: 0.3s ease background-color;
       color: black;
       cursor: pointer;
     }
 
-    button[type="submit"]:hover {
-      background-color: #b68166;
+    #submit-button:hover {
+      background-color: gray;
     }
   }
 }

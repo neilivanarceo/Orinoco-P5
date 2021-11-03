@@ -13,7 +13,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px 150px;
+  margin: 20px 300px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -96,7 +96,7 @@ header .navigation ul li a:hover {
 
 .heading-title {
   border-collapse: collapse;
-  margin: 30px 350px;
+  margin: 0px 350px;
   border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -104,29 +104,48 @@ header .navigation ul li a:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 40px;
-  background-color: gray;
+  padding: 30px 50px;
+  background-color: #b1afaf;
+}
+
+@media only screen and (max-width: 1400px) {
+  .heading-title {
+    margin: 30px 200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .heading-title {
+    margin: 30px 150px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .heading-title {
+    margin: 30px 50px;
+  }
 }
 
 .for-empty-cart {
   text-align: center;
   font-size: 30px;
+  margin-top: 50px;
 }
 
 .cart-container {
   border-collapse: collapse;
-  margin: 30px 350px;
+  margin: 0px 350px;
 }
 
 @media only screen and (max-width: 1400px) {
   .cart-container {
-    margin: 30px 300px;
+    margin: 30px 200px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .cart-container {
-    margin: 30px 150px;
+    margin: 30px 100px;
   }
 }
 
@@ -177,6 +196,7 @@ header .navigation ul li a:hover {
   margin: 10px 2px;
   width: 15%;
   border: 1px solid black;
+  padding: 3px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -225,7 +245,7 @@ header .navigation ul li a:hover {
           align-items: center;
 }
 
-.cart-container .parent form {
+.cart-container .parent .item-color {
   color: black;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -233,6 +253,9 @@ header .navigation ul li a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .cart-container .parent #subtotal {
@@ -243,6 +266,7 @@ header .navigation ul li a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-right: 20px;
 }
 
 .total-price {
@@ -258,8 +282,9 @@ header .navigation ul li a:hover {
 
 .total-price .total {
   height: 100%;
-  margin: 40px;
-  background-color: blanchedalmond;
+  margin: 20px;
+  background-color: #b1afaf;
+  padding: 15px;
 }
 
 #checkout-container {
@@ -281,7 +306,7 @@ header .navigation ul li a:hover {
 }
 
 #checkout-container .checkout:hover {
-  background-color: blanchedalmond;
+  background-color: #b1afaf;
 }
 
 #checkout-container .checkout a {
@@ -321,10 +346,44 @@ header .navigation ul li a:hover {
   width: 30%;
 }
 
+@media only screen and (max-width: 1400px) {
+  #input-form-container .forms {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #input-form-container .forms {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #input-form-container .forms {
+    width: 60%;
+  }
+}
+
 #input-form-container .forms .form-group {
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 10px 20px 10px 20px;
+}
+
+@media only screen and (max-width: 1400px) {
+  #input-form-container .forms .form-group {
+    margin: 10px 10px 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  #input-form-container .forms .form-group {
+    margin: 10px 10px 10px 10px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #input-form-container .forms .form-group {
+    margin: 5px 5px 5px 5px;
+  }
 }
 
 #input-form-container .forms .form-group input,
@@ -340,21 +399,21 @@ header .navigation ul li a:hover {
   resize: vertical;
 }
 
-#input-form-container .forms button[type="submit"] {
+#input-form-container .forms #submit-button {
   width: 90%;
   padding: 10px;
   margin: 30px 20px 30px 20px;
   border-radius: 5px;
   margin-top: 10px;
   font-size: 18px;
-  background-color: #f3976c;
+  background-color: #b1afaf;
   -webkit-transition: 0.3s ease background-color;
   transition: 0.3s ease background-color;
   color: black;
   cursor: pointer;
 }
 
-#input-form-container .forms button[type="submit"]:hover {
-  background-color: #b68166;
+#input-form-container .forms #submit-button:hover {
+  background-color: gray;
 }
 /*# sourceMappingURL=cart.css.map */

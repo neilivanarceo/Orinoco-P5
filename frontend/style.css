@@ -13,7 +13,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px 150px;
+  margin: 20px 300px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -48,7 +48,6 @@ header .navigation ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 30px;
 }
 
 header .navigation ul li {
@@ -121,7 +120,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 20px 150px;
+  margin: 20px 300px;
 }
 
 @media only screen and (max-width: 1400px) {

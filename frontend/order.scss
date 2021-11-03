@@ -84,59 +84,82 @@ header {
 
 .confirmation-container {
   border-collapse: collapse;
-  margin: 30px 190px;
+  margin: 30px 300px;
+}
 
-  table {
+.order-container {
+  border-collapse: collapse;
+  margin: 30px 600px 30px 300px;
+
+  .parent {
     text-align: left;
-    padding: 10px;
+    padding: 5px 20px;
     color: black;
     width: 100%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
 
-    td {
-      padding: 10px 10px;
-      border-bottom: 1px solid gray;
-      text-align: left;
-      width: 20%;
+    @include responsive(laptop) {
+      padding: 5px 10px;
+    }
+    @include responsive(tab) {
+      padding: 5px 10px;
+    }
+    @include responsive(phone) {
+      padding: 5px 5px;
+    }
 
+    .cart-detail {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px 2px;
+      width: 25%;
+      border: 1px solid black;
+      padding: 3px;
+
+      @include responsive(laptop) {
+        margin: 5px 2px;
+      }
       @include responsive(tab) {
-        padding: 0px;
+        margin: 5px 2px;
       }
       @include responsive(phone) {
-        padding: 0px;
+        margin: 5px 2px;
       }
 
-      input {
-        width: 50px;
-        height: 30px;
-        padding: 5px;
-      }
-
-      a {
-        color: red;
+      p {
         font-size: 12px;
-        text-decoration: none;
-
-        &:hover {
-          text-decoration: underline;
-        }
       }
 
       img {
-        height: 80px;
-        width: 80px;
+        height: 60px;
+        width: 100%;
         margin-right: 5px;
         border: 1px solid black;
       }
-
-      .cart-detail {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 10px 2px;
-        width: 70%;
-      }
     }
-    td:last-child {
-      text-align: center;
+
+    .quantity-input {
+      color: black;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    #item-color {
+      color: black;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    #subtotal {
+      color: black;
+      display: flex;
+      align-items: center;
+      margin-right: 30px;
+      font-size: 12px;
     }
   }
 }
@@ -144,20 +167,13 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  border: 1px solid black;
+  font-size: 12px;
 
-  table {
-    border-top: 2px solid black;
-    max-width: 250px;
-
-    @include responsive(tab) {
-      padding: 0px;
-    }
-    @include responsive(phone) {
-      padding: 0px;
-    }
-
-    td:last-child {
-      text-align: right;
-    }
+  .total {
+    height: 100%;
+    margin: 20px;
+    background-color: rgb(177, 175, 175);
+    padding: 15px;
   }
 }

@@ -27,9 +27,9 @@
 // }
 
 
-// function createCard(obj) {
-//   let id = obj._id;
- 
+  // function createCard(obj) {
+  //   let id = obj._id;
+  
 //   const teddyItem = document.createElement('div');
 //   teddyItem.classList.add('teddyItem');
 //   const imageItem = document.createElement('img');

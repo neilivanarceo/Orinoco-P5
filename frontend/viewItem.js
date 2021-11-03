@@ -103,7 +103,7 @@ function itemsInLocalStorage(teddy) {
     } 
     else { 
       itemsInLocalStorage[teddy.name + itemColor] == undefined ;         // here when item is already in the cart it will not add the same item. 
-      alert(`This bear named ${teddy.name} with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
+      alert(`This bear with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
     }
   } 
   else {                                                                       // here where first item will add to local storage     1st

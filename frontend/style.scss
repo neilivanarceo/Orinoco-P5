@@ -47,7 +47,7 @@
 header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 150px;
+  margin: 20px 300px;
   @include margin30;
 
   .heading-name {
@@ -62,7 +62,6 @@ header {
 
   .navigation ul {
     display: flex;
-    margin-right: 30px;
 
     li {
       display: inline-flex;
@@ -107,7 +106,7 @@ h1 {
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
-  margin: 20px 150px;
+  margin: 20px 300px;
   @include responsive(laptop) {
     margin: 20px 20px;
   }

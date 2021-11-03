@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -11,8 +11,8 @@ header {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 20px 150px;
   border: 1px solid black;
 }
@@ -44,8 +44,8 @@ header .heading-name a {
   text-decoration: none;
   color: black;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 header .navigation ul {
@@ -122,70 +122,119 @@ header .navigation ul li a:hover {
 
 .confirmation-container {
   border-collapse: collapse;
-  margin: 30px 190px;
+  margin: 30px 300px;
 }
 
-.confirmation-container table {
+.order-container {
+  border-collapse: collapse;
+  margin: 30px 600px 30px 300px;
+}
+
+.order-container .parent {
   text-align: left;
-  padding: 10px;
+  padding: 5px 20px;
   color: black;
   width: 100%;
+  border: 1px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.confirmation-container table td {
-  padding: 10px 10px;
-  border-bottom: 1px solid gray;
-  text-align: left;
-  width: 20%;
+@media only screen and (max-width: 1400px) {
+  .order-container .parent {
+    padding: 5px 10px;
+  }
 }
 
 @media only screen and (max-width: 900px) {
-  .confirmation-container table td {
-    padding: 0px;
+  .order-container .parent {
+    padding: 5px 10px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .confirmation-container table td {
-    padding: 0px;
+  .order-container .parent {
+    padding: 5px 5px;
   }
 }
 
-.confirmation-container table td input {
-  width: 50px;
-  height: 30px;
-  padding: 5px;
-}
-
-.confirmation-container table td a {
-  color: red;
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.confirmation-container table td a:hover {
-  text-decoration: underline;
-}
-
-.confirmation-container table td img {
-  height: 80px;
-  width: 80px;
-  margin-right: 5px;
-  border: 1px solid black;
-}
-
-.confirmation-container table td .cart-detail {
+.order-container .parent .cart-detail {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 10px 2px;
-  width: 70%;
+  width: 25%;
+  border: 1px solid black;
+  padding: 3px;
 }
 
-.confirmation-container table td:last-child {
-  text-align: center;
+@media only screen and (max-width: 1400px) {
+  .order-container .parent .cart-detail {
+    margin: 5px 2px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .order-container .parent .cart-detail {
+    margin: 5px 2px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .order-container .parent .cart-detail {
+    margin: 5px 2px;
+  }
+}
+
+.order-container .parent .cart-detail p {
+  font-size: 12px;
+}
+
+.order-container .parent .cart-detail img {
+  height: 60px;
+  width: 100%;
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+.order-container .parent .quantity-input {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+}
+
+.order-container .parent #item-color {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 12px;
+}
+
+.order-container .parent #subtotal {
+  color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 30px;
+  font-size: 12px;
 }
 
 .total-price {
@@ -193,29 +242,17 @@ header .navigation ul li a:hover {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   width: 100%;
+  border: 1px solid black;
+  font-size: 12px;
 }
 
-.total-price table {
-  border-top: 2px solid black;
-  max-width: 250px;
+.total-price .total {
+  height: 100%;
+  margin: 20px;
+  background-color: #b1afaf;
+  padding: 15px;
 }
-
-@media only screen and (max-width: 900px) {
-  .total-price table {
-    padding: 0px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .total-price table {
-    padding: 0px;
-  }
-}
-
-.total-price table td:last-child {
-  text-align: right;
-}
-/*# sourceMappingURL=confirmation.css.map */
+/*# sourceMappingURL=order.css.map */
