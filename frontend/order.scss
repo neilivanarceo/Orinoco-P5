@@ -9,9 +9,8 @@
 header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 150px;
+  margin: 20px 300px;
   @include margin30;
-  border: 1px solid black;
 
   .heading-name {
     margin: 0px;
@@ -58,30 +57,6 @@ header {
   }
 }
 
-.heading-title {
-  border-collapse: collapse;
-  margin: 30px 200px;
-  border: 1px solid black;
-
-  table {
-    text-align: left;
-    padding: 10px;
-    color: black;
-    background-color: gray;
-    width: 100%;
-
-    th {
-      text-align: left;
-      padding: 10px;
-      color: black;
-      background-color: gray;
-    }
-    th:last-child {
-      text-align: center;
-    }
-  }
-}
-
 .confirmation-container {
   border-collapse: collapse;
   margin: 30px 300px;
@@ -89,7 +64,7 @@ header {
 
 .order-container {
   border-collapse: collapse;
-  margin: 30px 600px 30px 300px;
+  margin: 30px 750px 30px 300px;
 
   .parent {
     text-align: left;
@@ -113,8 +88,8 @@ header {
     .cart-detail {
       display: flex;
       flex-wrap: wrap;
-      margin: 10px 2px;
-      width: 25%;
+      margin: 5px 2px;
+      width: 15%;
       border: 1px solid black;
       padding: 3px;
 
@@ -135,7 +110,7 @@ header {
       img {
         height: 60px;
         width: 100%;
-        margin-right: 5px;
+
         border: 1px solid black;
       }
     }
@@ -158,7 +133,6 @@ header {
       color: black;
       display: flex;
       align-items: center;
-      margin-right: 30px;
       font-size: 12px;
     }
   }

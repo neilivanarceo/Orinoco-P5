@@ -152,7 +152,7 @@ h1 {
   margin: 30px;
   -webkit-box-shadow: 0px 2px 20px #d3cfcf;
           box-shadow: 0px 2px 20px #d3cfcf;
-  width: 30%;
+  width: 40%;
   height: 30%;
   border: 1px solid black;
 }
@@ -223,5 +223,52 @@ h1 {
 
 .container .teddy-item .addToCart:hover {
   background-color: #d8d8d8;
+}
+
+.footer-bg {
+  background: #c9c6c6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer-bg .footer-quote {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  color: black;
+}
+
+.footer-bg .footer-logos {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.footer-bg .footer-logos .social {
+  padding: 15px;
+}
+
+.footer-bg .footer-logos .social a {
+  color: white;
+}
+
+.footer-bg .footer-logos .social a:hover {
+  color: gray;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

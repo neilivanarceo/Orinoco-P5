@@ -74,29 +74,7 @@
 
 
 
-  // let id = obj._id;
-  // let name = obj.name;
-  // let price = obj.price;
-  // let img = obj.imageUrl;
-  // let description = obj.description;
-  // console.log (id, name, price, img, description)
   
-  // return `
-  //     <div class="teddy-item"> 
-                      
-  //     //                  <a href="./viewItem.html?id=${id}"> <img class="image-item" src="${img}"></img>
-  //     //                   </a>
-  //     //                         <span class="teddy-name">${name}</span>
-  //     //                         <span class="description">${description}</span>
-  //     //                             <span class="price">Price : ${price}</span>
-                            
-  //     //                 </div>
-
-  
-  // `;
-  
-
-
 
 let getAllTeddies = [];
 async function requestItems() {
@@ -113,7 +91,7 @@ function showProducts() {
 
     const itemsHtml = getAllTeddies.map((teddy,i) => {
 
-      let currencyPrice = teddy.price / 100;
+    let currencyPrice = teddy.price / 100;
     
       const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
       currency: 'USD', useGrouping:false}).format(currencyPrice);

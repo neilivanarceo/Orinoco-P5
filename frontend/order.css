@@ -13,8 +13,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px 150px;
-  border: 1px solid black;
+  margin: 20px 300px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -95,31 +94,6 @@ header .navigation ul li a:hover {
   text-decoration: underline;
 }
 
-.heading-title {
-  border-collapse: collapse;
-  margin: 30px 200px;
-  border: 1px solid black;
-}
-
-.heading-title table {
-  text-align: left;
-  padding: 10px;
-  color: black;
-  background-color: gray;
-  width: 100%;
-}
-
-.heading-title table th {
-  text-align: left;
-  padding: 10px;
-  color: black;
-  background-color: gray;
-}
-
-.heading-title table th:last-child {
-  text-align: center;
-}
-
 .confirmation-container {
   border-collapse: collapse;
   margin: 30px 300px;
@@ -127,7 +101,7 @@ header .navigation ul li a:hover {
 
 .order-container {
   border-collapse: collapse;
-  margin: 30px 600px 30px 300px;
+  margin: 30px 750px 30px 300px;
 }
 
 .order-container .parent {
@@ -168,8 +142,8 @@ header .navigation ul li a:hover {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 10px 2px;
-  width: 25%;
+  margin: 5px 2px;
+  width: 15%;
   border: 1px solid black;
   padding: 3px;
 }
@@ -199,7 +173,6 @@ header .navigation ul li a:hover {
 .order-container .parent .cart-detail img {
   height: 60px;
   width: 100%;
-  margin-right: 5px;
   border: 1px solid black;
 }
 
@@ -233,7 +206,6 @@ header .navigation ul li a:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 30px;
   font-size: 12px;
 }
 

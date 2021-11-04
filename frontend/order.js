@@ -1,7 +1,4 @@
-
-
-
-function displayCart() {
+function displayPurchase() {
     const params = new URLSearchParams(window.location.search);
     const orderId = params.get('conf');
     const firstName = params.get('firstName');
@@ -9,14 +6,13 @@ function displayCart() {
     const address = params.get('address');
     const city = params.get('city');
    
-
     let cartItems = localStorage.getItem('productsInCart');
     cartItems = JSON.parse(cartItems);
-    let orderContainer = document.querySelector('.order-container');
+    let purchaseContainer = document.querySelector('.order-container');
     let confirmationContainer = document.querySelector('.confirmation-container');
     let cartCost = localStorage.getItem('totalCostInCart');
     
-        orderContainer.innerHTML = '';
+    purchaseContainer.innerHTML = '';
         Object.values(cartItems).map(teddy => {
             const currencyPrice = teddy.price;
             const price = new Intl.NumberFormat('en-US', { style: 'currency',
@@ -25,49 +21,46 @@ function displayCart() {
             confirmationContainer.innerHTML =
             `
             <h2> Thank You ${firstName} ${lastName} for your order </h2><br>
-
             <h5> Order Confirmation number : ${orderId} </h5><br>
             <h5>Shipping address : ${address} ${city}</h5><br>
-            <h3> Order Summary :</h3>
+            <h3> Purchase Summary :</h3>
             `
-       
-            orderContainer.innerHTML +=
+            purchaseContainer.innerHTML +=
             `
             <div class="parent">
-                    <div class="cart-detail"><a href="./viewItem.html?id=${teddy._id}"> 
-                        <img src="${teddy.imageUrl}"></a></img>
+                    <div class="cart-detail"> 
+                        <img src="${teddy.imageUrl}"></img>
                         <p>${teddy.name}</p>
-                       
-                       
                     </div>
                         
                     <div class="quantity-input">
-                        <ion-icon class="decrease" name="caret-back-outline"></ion-icon>
                         <span id="quantity"> ${teddy.quantity}</span>
-                        <ion-icon class="increase" name="caret-forward-outline"></ion-icon>
                     </div>
 
                     <div id="item-color">
-                            ${teddy.color}
+                        ${teddy.color}
                     </div>
                         
-                    <div id="subtotal"><span>$${(teddy.price * teddy.quantity) / 100}.00</span>
+                    <div id="subtotal">
+                        <span>$${(teddy.price * teddy.quantity) / 100}.00</span>
                     </div>
                 </div>    
             `
-              
         });
             // for total cost 
-            orderContainer.innerHTML +=
+            purchaseContainer.innerHTML +=
             `   
                 <div class="total-price">
                   <div class="total">  Total Cost : $${cartCost}.00</div>
                 </div>
             `;  
 }       
-
-displayCart();
+displayPurchase();
 localStorage.clear();
+
+
+
+
 
 // const uri = 'http://localhost:3000/api/teddies/order';
 // // const singleLink = './viewItem.html?id='

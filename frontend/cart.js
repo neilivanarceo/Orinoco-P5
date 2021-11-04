@@ -29,7 +29,7 @@ function displayCart() {
                     <div class="cart-detail"><a href="./viewItem.html?id=${teddy._id}"> 
                         <img src="${teddy.imageUrl}"></a></img>
                         <p>${teddy.name}</p>
-                        <small> Price:$<span class="item-price">${currencyPrice}</span>.00</small><br>
+                        <small> Price:$<span class="item-price">${currencyPrice}</span>.00</small>
                         <a class="delete-button">Remove</a> 
                     </div>
                         
@@ -39,10 +39,11 @@ function displayCart() {
                         <ion-icon class="increase" name="caret-forward-outline"></ion-icon>
                     </div>
 
-                   
                     <div class="item-color">${teddy.color}</div>
                     
-                    <div id="subtotal">${(teddy.price * teddy.quantity) / 100}.00</div>
+                    <div id="subtotal">
+                        $<span>${(teddy.price * teddy.quantity) / 100}</span>.00
+                    </div>
                 </div>    
             `
               
@@ -65,57 +66,45 @@ function displayCart() {
             `
                 <div id="input-form-container">
                     <div class="forms">
-                        <form id="input-information">
+                        <form id="input-information" name="myForm"  required>
+                            <div class="form-group">
+                            <label for="firstname"> First Name : </label>
+                            <input name="firstname" type="text" id="firstname" placeholder="First Name" value="" required >
+                            </div>
+
+                            <div class="form-group">
+                            <label for="lastname"> Last Name : </label>
+                            <input  name="lastname" type="text" id="lastname" placeholder="Last Name" value="" required>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="contact">Contact : </label>
+                            <input  name="contact" type="contact" id="contact" placeholder="Phone Number" value="" required>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="email"> Email : </label>
+                            <input name="email" type="email" id="email" placeholder="Email Address" value="" required>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="address"> Address : </label>
+                            <input  name="address" type="address" id="address" placeholder="Home number and Street" value="" required>
+                            </div>
+
+                            <div class="form-group">
+                            <label for="city"> City : </label>
+                            <input  name="city" type="city" id="city" placeholder="City Address" value="" required>
+                            </div>
                             
-                                <div class="form-group">
-                                <label for="firstname"> Name : </label>
-                                <input name="firstname" type="text" id="firstname" placeholder="First Name" value="" required/ >
-                                </div>
-
-                                <div class="form-group">
-                                <label for="lastname"> Name : </label>
-                                <input  name="lastname" type="text" id="lastname" placeholder="Last Name" value="" required>
-                                </div>
-
-                                <div class="form-group">
-                                <label for="contact">Contact : </label>
-                                <input  name="contact" type="contact" id="contact" placeholder="Phone Number" value=""  required>
-                                </div>
-
-                                <div class="form-group">
-                                <label for="email"> Email : </label>
-                                <input name="email" type="email" id="email" placeholder="Email Address" value="" required>
-                                </div>
-
-                                <div class="form-group">
-                                <label for="address"> Address : </label>
-                                <input  name="address" type="address" id="address" placeholder="Home number and Street" value=""  required>
-                                </div>
-
-                                <div class="form-group">
-                                <label for="city"> City : </label>
-                                <input  name="city" type="city" id="city" placeholder="City Address" value="" required>
-                                </div>
-                            
-                            <button id="submit-button" type="submit"> Purchase</button>
+                            <input id="submit-button" type="submit" value="Purchase">
                         </form>
                     </div>   
                 </div>  
-                
-                
-                <p id="response-firstname"></p>
-                <p id="response-lastname"></p>
-                <p id="response-contact"></p>
-                <p id="response-email"></p>
-                <p id="response-address"></p>
-                <p id="response-city"></p>
-                <p id="response-id"></p>
-                <p id="response-productId"></p>
             `;
     }
 }
 displayCart()
-
 
 // input form
 function showInputForm() {
@@ -123,7 +112,15 @@ function showInputForm() {
     document.getElementById("checkout-container").style.display="none";
 }
 
+function validateForm() {
+    let x = document.forms["myForm"]["firstname"].value;
+    if (x == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+  }
 
+// deleting item from the cart page
 function deleteItemFromCart() {
     let deleteButton = document.querySelectorAll('.delete-button');
 
@@ -146,13 +143,12 @@ function deleteItemFromCart() {
             currentName = deleteButton[i].parentElement.querySelector('p').textContent;
             currentColor = deleteButton[i].parentElement.parentElement.querySelector('.item-color').textContent;
             currentProduct = currentName + currentColor;
-            subTotal = deleteButton[i].parentElement.parentElement.querySelector('#subtotal').textContent;
+            subTotal = deleteButton[i].parentElement.parentElement.querySelector('#subtotal span').textContent;
             
-
             // to  calculate the total cost in the cart page when deleting item
             localStorage.setItem('totalCostInCart', cartCostFromLocalStorage - subTotal);
 
-            // to  subrtact the total quantity in the cart or in every page when deleting item
+            // to  subtract the total quantity in the cart every page when deleting item
             localStorage.setItem('totalQuantityInCart', itemCountInCart - itemsInLocalStorage[currentProduct].quantity)
 
             delete itemsInLocalStorage[currentProduct];
@@ -165,17 +161,14 @@ deleteItemFromCart()
 
 
 function manageQuantity() {
-    
     let itemCountInCart = localStorage.getItem('totalQuantityInCart'); 
     itemCountInCart = parseInt(itemCountInCart);
-    
     let itemsInLocalStorage = localStorage.getItem('productsInCart');
     itemsInLocalStorage = JSON.parse(itemsInLocalStorage); 
     let cartCostFromLocalStorage = localStorage.getItem('totalCostInCart');
     cartCostFromLocalStorage = parseInt(cartCostFromLocalStorage);
     let decreaseButtons = document.querySelectorAll('.decrease');
     let increaseButtons = document.querySelectorAll('.increase');
-   
     let currentQuantity = '';
     let currentName = '';
     let currentColor = '';
@@ -217,8 +210,7 @@ function manageQuantity() {
 }  
 manageQuantity()
 
-
-// // // get form elements
+// form elements and the backend and POST method
 
     const firstNameInput = document.getElementById('firstname');
     const lastNameInput = document.getElementById('lastname');
@@ -236,7 +228,6 @@ manageQuantity()
     const responseAddress = document.getElementById('response-address');
     const responseCity = document.getElementById('response-city');
     const responseId = document.getElementById('response-id');
-    const responseProductId = document.getElementById('response-productId');
 
     let productName = "";
     let productColor = "";
@@ -249,11 +240,9 @@ Object.values(itemsInLocalStorage).map(item =>{
         const productColor = item.color;
         const currentProduct = productName + productColor;
         productIds = itemsInLocalStorage[currentProduct]._id; 
-     
 });      
     
     submitButton.addEventListener('click', ($event) => {
-        // alert('alert')
         $event.preventDefault();
         const postRequestObj = {
             contact:  { 
@@ -291,75 +280,19 @@ async function submitFormData(postRequestObj) {
     try {
         const requestPromise = makeRequest(postRequestObj);
         const response = await requestPromise; 
-        async function goToConf() { 
-            location.href = `/order.html?conf=${response.orderId}&firstName=${response.contact.firstName}&lastName=${response.contact.lastName}&address=${response.contact.address}&city=${response.contact.city}`;
+        async function goToConfPage() { 
+            location.href = `/order.html?conf=${response.orderId}&fName=${response.contact.firstName}&lName=${response.contact.lastName}&address=${response.contact.address}&city=${response.contact.city}`;
         }
-        await goToConf();
-
+        await goToConfPage();
         responseFirstName.textContent = response.contact.firstName;
         responseLastName.textContent = response.contact.lastName;
         responseContact.textContent = response.contact.contact;
         responseAddress.textContent = response.contact.address;
         responseCity.textContent = response.contact.city;
-        responseId.textContent = response.orderId,
-        responseProductId.textContent = response.products._id;
+        responseId.textContent = response.orderId
     } catch(errorResponse) {
        errorResponse.error;
     }
 }    
 
 
-// input information and back end ---------
-
-// let firstNameInput = document.getElementById('firstname');
-// let lastNameInput = document.getElementById('lastname');
-// let contact = document.getElementById('contact');
-// let emailInput = document.getElementById('email');
-// let addressInput = document.getElementById('address');
-// let cityInput = document.getElementById('city');
-// const formElement = document.getElementById("input-information");
-
-// const url = "http://localhost:3000/api/teddies";
-
-// let productName = "";
-// let productColor = "";
-// let productIds = [];
-// let itemsInLocalStorage = localStorage.getItem('productsInCart');
-//     itemsInLocalStorage = JSON.parse(itemsInLocalStorage); 
-// const formElement = document.getElementById("input-information");
-
-// Object.values(itemsInLocalStorage).map(item =>{
-//     const productName = item.name;
-//     const productColor = item.color;
-//     const currentProduct = productName + productColor;
-//     const productIds = itemsInLocalStorage[currentProduct]._id; 
-//     console.log(productIds);
-
-//     formElement.addEventListener("submit", async (e) => {
-//     e.preventDefault();
-//     const postRequestObj = {
-//         contact:  { 
-//             firstName: firstNameInput.value,
-//             lastName: lastNameInput.value,
-//             address: addressInput.value,
-//             city: cityInput.value,
-//             email: emailInput.value
-//         },
-//         products: [productIds]
-//         }
-
-//     try{
-//         const response = await fetch(url, {
-//             method :'POST',
-//             body: JSON.stringify(postRequestObj),
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             }
-//         });
-//         const json = await response.json(postRequestObj);
-//         console.log(json);
-//     } catch(e){
-//         console.error(e);
-//     }
-// }) 
-// });

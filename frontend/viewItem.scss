@@ -106,7 +106,7 @@ h1 {
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
-  margin: 20px 300px;
+  margin: 20px 300px 90px 300px;
   @include responsive(laptop) {
     margin: 20px 20px;
   }
@@ -122,7 +122,7 @@ h1 {
     flex-direction: column;
     margin: 30px;
     box-shadow: 0px 2px 20px rgb(211, 207, 207);
-    width: 30%;
+    width: 40%;
     height: 30%;
     border: 1px solid black;
 
@@ -140,24 +140,23 @@ h1 {
       height: 200px;
       width: 100%;
       border-bottom: 0.5px solid black;
-      cursor: pointer;
     }
 
     .teddy-name {
-      margin: 10px;
+      margin: 5px;
       font-size: 25px;
     }
 
     .description {
-      margin: 10px;
+      margin: 5px;
     }
 
     form {
-      margin: 10px;
+      margin: 5px;
     }
 
     .price {
-      margin: 10px;
+      margin: 5px;
     }
 
     a {
@@ -172,6 +171,40 @@ h1 {
 
       &:hover {
         background-color: rgb(216, 216, 216);
+      }
+    }
+  }
+}
+
+.footer-bg {
+  background: rgb(201, 198, 198);
+  display: flex;
+  flex-direction: column;
+
+  .footer-quote {
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: black;
+  }
+
+  .footer-logos {
+    display: flex;
+    justify-content: center;
+
+    .social {
+      padding: 15px;
+
+      a {
+        color: black;
+
+        &:hover {
+          color: rgb(201, 198, 198);
+          cursor: pointer;
+        }
       }
     }
   }

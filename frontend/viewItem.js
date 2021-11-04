@@ -54,21 +54,6 @@ function AddedToCart(){                                                 // this 
   }
 }
 
-// function totalQuantityInCart () {
-//   let itemCountInCart = localStorage.getItem('totalQuantityInCart');
-//   itemCountInCart = parseInt(itemCountInCart);
-//   if (itemCountInCart){
-//           localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);
-//           document.querySelector('.myCart span').textContent = itemCountInCart + 1;
-//   }
-//   else {
-//           localStorage.setItem('totalQuantityInCart', 1);
-//           document.querySelector('.myCart span').textContent = 1;
-//   }
-// }
-
-
-
 function itemsInLocalStorage(teddy) {
   
   let itemCountInCart = localStorage.getItem('totalQuantityInCart');  
@@ -83,7 +68,7 @@ function itemsInLocalStorage(teddy) {
   let itemColor = document.getElementById('item-color').value;
  
   if (itemsInLocalStorage !== null) {                                         
-    if (itemsInLocalStorage[teddy.name + itemColor] === undefined) {           //here where second and the rest item add to local storage    2nd
+    if (itemsInLocalStorage[teddy.name + itemColor] === undefined) {           //here where "second and the rest item add to local storage"    
       itemsInLocalStorage =  {
           ...itemsInLocalStorage,
           [teddy.name + itemColor]: teddy
@@ -106,7 +91,7 @@ function itemsInLocalStorage(teddy) {
       alert(`This bear with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
     }
   } 
-  else {                                                                       // here where first item will add to local storage     1st
+  else {                                                                       // here where "first item" will add to local storage   
     itemsInLocalStorage = {
       [teddy.name + itemColor]: teddy
     }           
