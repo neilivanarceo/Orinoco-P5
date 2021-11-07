@@ -13,7 +13,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px 300px;
+  margin: 20px 400px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -39,19 +39,14 @@ header .heading-name {
   font-size: xx-large;
 }
 
-header .heading-name a {
-  text-decoration: none;
-  color: black;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+header .heading-name a img {
+  height: 60px;
 }
 
 header .navigation ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 30px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -97,7 +92,7 @@ header .navigation ul li a:hover {
 .heading-title {
   border-collapse: collapse;
   margin: 0px 400px;
-  border: 1px solid black;
+  border: 1px solid silver;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -105,7 +100,7 @@ header .navigation ul li a:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 30px 50px;
-  background-color: #c9c6c6;
+  background-color: silver;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -160,7 +155,7 @@ header .navigation ul li a:hover {
   padding: 5px 40px;
   color: black;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid silver;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,7 +194,7 @@ header .navigation ul li a:hover {
           flex-direction: column;
   margin: 10px 2px;
   width: 20%;
-  border: 1px solid black;
+  border: 1px solid silver;
   padding: 3px;
 }
 
@@ -235,7 +230,7 @@ header .navigation ul li a:hover {
 .cart-container .parent .cart-detail img {
   height: 80px;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid silver;
 }
 
 .cart-container .parent .quantity-input {
@@ -280,13 +275,13 @@ header .navigation ul li a:hover {
       -ms-flex-pack: end;
           justify-content: flex-end;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid silver;
 }
 
 .total-price .total {
   height: 100%;
   margin: 20px;
-  border: 1px solid black;
+  border: 1px solid silver;
   padding: 15px;
 }
 
@@ -303,18 +298,18 @@ header .navigation ul li a:hover {
 #checkout-container .checkout {
   height: 100%;
   margin: 20px;
-  border: 1px solid black;
-  background-color: white;
+  border: 1px solid silver;
+  background-color: #3c3cf1;
   padding: 10px;
 }
 
 #checkout-container .checkout:hover {
-  background-color: #c9c6c6;
+  background-color: #7171c7;
 }
 
 #checkout-container .checkout a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 #input-form-container {
@@ -323,7 +318,8 @@ header .navigation ul li a:hover {
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
 }
 
 #input-form-container h2 {
@@ -346,7 +342,8 @@ header .navigation ul li a:hover {
   -webkit-box-shadow: 0px 2px 20px #d3cfcf;
           box-shadow: 0px 2px 20px #d3cfcf;
   border: 1px solid black;
-  width: 30%;
+  width: 25%;
+  padding-top: 20px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -369,6 +366,7 @@ header .navigation ul li a:hover {
 
 #input-form-container .forms .form-group {
   margin: 10px 20px 10px 20px;
+  position: relative;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -389,13 +387,53 @@ header .navigation ul li a:hover {
   }
 }
 
-#input-form-container .forms .form-group input,
-#input-form-container .forms .form-group textarea {
-  width: 100%;
+#input-form-container .forms .form-group input {
+  width: 90%;
   padding: 5px;
   font-size: 15px;
-  margin-top: 5px;
   border-radius: 8px;
+  display: block;
+  border: 1px solid black;
+}
+
+#input-form-container .forms .form-group.success input {
+  border: 2px solid green;
+}
+
+#input-form-container .forms .form-group.error input {
+  border: 2px solid red;
+}
+
+#input-form-container .forms .form-group i {
+  position: absolute;
+  top: 26px;
+  right: 45px;
+  visibility: hidden;
+}
+
+#input-form-container .forms .form-group.success i.fa-check-circle {
+  position: absolute;
+  top: 26px;
+  right: 45px;
+  color: green;
+  visibility: visible;
+}
+
+#input-form-container .forms .form-group.error i.fa-exclamation-circle {
+  position: absolute;
+  top: 26px;
+  right: 45px;
+  color: red;
+  visibility: visible;
+}
+
+#input-form-container .forms .form-group small {
+  visibility: hidden;
+}
+
+#input-form-container .forms .form-group.error small {
+  visibility: visible;
+  color: red;
 }
 
 #input-form-container .forms textarea {
@@ -403,25 +441,25 @@ header .navigation ul li a:hover {
 }
 
 #input-form-container .forms #submit-button {
-  width: 90%;
+  width: 80%;
   padding: 10px;
   margin: 30px 20px 30px 20px;
   border-radius: 5px;
   margin-top: 10px;
   font-size: 18px;
-  background-color: #b1afaf;
+  background-color: #3c3cf1;
   -webkit-transition: 0.3s ease background-color;
   transition: 0.3s ease background-color;
-  color: black;
+  color: white;
   cursor: pointer;
 }
 
 #input-form-container .forms #submit-button:hover {
-  background-color: gray;
+  background-color: #7171c7;
 }
 
 .footer-bg {
-  background: #c9c6c6;
+  background: #f3e9f1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -429,6 +467,9 @@ header .navigation ul li a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  bottom: 0;
+  position: relative;
+  width: 100%;
 }
 
 .footer-bg .footer-quote {
@@ -459,11 +500,11 @@ header .navigation ul li a:hover {
 }
 
 .footer-bg .footer-logos .social a {
-  color: white;
+  color: black;
 }
 
 .footer-bg .footer-logos .social a:hover {
-  color: gray;
+  color: #c9c6c6;
   cursor: pointer;
 }
 /*# sourceMappingURL=cart.css.map */

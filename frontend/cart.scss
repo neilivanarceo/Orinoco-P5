@@ -9,23 +9,20 @@
 header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 300px;
+  margin: 20px 400px;
   @include margin30;
 
   .heading-name {
     margin: 0px;
     font-size: xx-large;
 
-    a {
-      text-decoration: none;
-      color: black;
-      justify-content: center;
+    a img {
+      height: 60px;
     }
   }
 
   .navigation ul {
     display: flex;
-    margin-right: 30px;
 
     @include responsive(tab) {
       margin-right: 0;
@@ -60,11 +57,11 @@ header {
 .heading-title {
   border-collapse: collapse;
   margin: 0px 400px;
-  border: 1px solid black;
+  border: 1px solid silver;
   display: flex;
   justify-content: space-between;
   padding: 30px 50px;
-  background-color: rgb(201, 198, 198);
+  background-color: silver;
 
   @include responsive(laptop) {
     margin: 30px 200px;
@@ -102,7 +99,7 @@ header {
     padding: 5px 40px;
     color: black;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid silver;
     display: flex;
     justify-content: space-between;
 
@@ -122,7 +119,7 @@ header {
       flex-direction: column;
       margin: 10px 2px;
       width: 20%;
-      border: 1px solid black;
+      border: 1px solid silver;
       padding: 3px;
 
       @include responsive(laptop) {
@@ -149,7 +146,7 @@ header {
       img {
         height: 80px;
         width: 100%;
-        border: 1px solid black;
+        border: 1px solid silver;
       }
     }
 
@@ -178,12 +175,12 @@ header {
   display: flex;
   justify-content: flex-end;
   width: 100%;
-  border: 1px solid black;
+  border: 1px solid silver;
 
   .total {
     height: 100%;
     margin: 20px;
-    border: 1px solid black;
+    border: 1px solid silver;
     // background-color: rgb(177, 175, 175);
     padding: 15px;
   }
@@ -197,16 +194,16 @@ header {
   .checkout {
     height: 100%;
     margin: 20px;
-    border: 1px solid black;
-    background-color: white;
+    border: 1px solid silver;
+    background-color: rgb(60, 60, 241);
     padding: 10px;
 
     &:hover {
-      background-color: rgb(201, 198, 198);
+      background-color: rgb(113, 113, 199);
     }
     a {
       text-decoration: none;
-      color: black;
+      color: white;
     }
   }
 }
@@ -215,7 +212,8 @@ header {
   display: none;
   justify-content: center;
   width: 100%;
-  justify-content: center;
+  position: relative;
+  margin-bottom: 20px;
 
   h2 {
     color: black;
@@ -230,7 +228,8 @@ header {
     flex-direction: column;
     box-shadow: 0px 2px 20px rgb(211, 207, 207);
     border: 1px solid black;
-    width: 30%;
+    width: 25%;
+    padding-top: 20px;
 
     @include responsive(laptop) {
       width: 40%;
@@ -247,6 +246,7 @@ header {
       // margin-left: 20px;
       // margin-right: 20px;
       margin: 10px 20px 10px 20px;
+      position: relative;
 
       @include responsive(laptop) {
         margin: 10px 10px 10px 10px;
@@ -259,13 +259,53 @@ header {
       }
     }
 
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
+    .form-group input {
+      width: 90%;
       padding: 5px;
       font-size: 15px;
-      margin-top: 5px;
       border-radius: 8px;
+      display: block;
+      border: 1px solid black;
+    }
+
+    .form-group.success input {
+      border: 2px solid green;
+    }
+
+    .form-group.error input {
+      border: 2px solid red;
+    }
+
+    .form-group i {
+      position: absolute;
+      top: 26px;
+      right: 45px;
+      visibility: hidden;
+    }
+
+    .form-group.success i.fa-check-circle {
+      position: absolute;
+      top: 26px;
+      right: 45px;
+      color: green;
+      visibility: visible;
+    }
+
+    .form-group.error i.fa-exclamation-circle {
+      position: absolute;
+      top: 26px;
+      right: 45px;
+      color: red;
+      visibility: visible;
+    }
+
+    .form-group small {
+      visibility: hidden;
+    }
+
+    .form-group.error small {
+      visibility: visible;
+      color: red;
     }
 
     textarea {
@@ -273,28 +313,31 @@ header {
     }
 
     #submit-button {
-      width: 90%;
+      width: 80%;
       padding: 10px;
       margin: 30px 20px 30px 20px;
       border-radius: 5px;
       margin-top: 10px;
       font-size: 18px;
-      background-color: rgb(177, 175, 175);
+      background-color: rgb(60, 60, 241);
       transition: 0.3s ease background-color;
-      color: black;
+      color: white;
       cursor: pointer;
     }
 
     #submit-button:hover {
-      background-color: gray;
+      background-color: rgb(113, 113, 199);
     }
   }
 }
 
 .footer-bg {
-  background: rgb(201, 198, 198);
+  background: rgba(243, 233, 241, 255);
   display: flex;
   flex-direction: column;
+  bottom: 0;
+  position: relative;
+  width: 100%;
 
   .footer-quote {
     margin-top: 20px;
@@ -314,10 +357,10 @@ header {
       padding: 15px;
 
       a {
-        color: white;
+        color: black;
 
         &:hover {
-          color: gray;
+          color: rgb(201, 198, 198);
           cursor: pointer;
         }
       }

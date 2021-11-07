@@ -20,40 +20,43 @@ function displayPurchase() {
             const currentPrice = price / 100;
             confirmationContainer.innerHTML =
             `
-            <h2> Thank You ${firstName} ${lastName} for your order </h2><br>
-            <h5> Order Confirmation number : ${orderId} </h5><br>
-            <h5>Shipping address : ${address} ${city}</h5><br>
-            <h3> Purchase Summary :</h3>
+            <h2> Thank You ${firstName} ${lastName} for your order! </h2><br>
+            <h5> Order Confirmation Id : ${orderId} </h5><br>
+            
             `
             purchaseContainer.innerHTML +=
             `
-            <div class="parent">
-                    <div class="cart-detail"> 
-                        <img src="${teddy.imageUrl}"></img>
-                        <p>${teddy.name}</p>
-                    </div>
-                        
-                    <div class="quantity-input">
-                        <span id="quantity"> ${teddy.quantity}</span>
-                    </div>
+                <h3> Purchase Summary :</h3>
+                <div class="parent">
+                        <div class="cart-detail"> 
+                            <img src="${teddy.imageUrl}"></img>
+                            <p>${teddy.name}</p>
+                        </div>
+                            
+                        <div class="quantity-input">
+                            <span id="quantity"> ${teddy.quantity}</span>
+                        </div>
 
-                    <div id="item-color">
-                        ${teddy.color}
-                    </div>
-                        
-                    <div id="subtotal">
-                        <span>$${(teddy.price * teddy.quantity) / 100}.00</span>
-                    </div>
-                </div>    
-            `
-        });
-            // for total cost 
-            purchaseContainer.innerHTML +=
-            `   
+                        <div id="item-color">
+                            ${teddy.color}
+                        </div>
+                            
+                        <div id="subtotal">
+                            <span>$${(teddy.price * teddy.quantity) / 100}.00</span>
+                        </div>
+                </div>  
                 <div class="total-price">
                   <div class="total">  Total Cost : $${cartCost}.00</div>
-                </div>
-            `;  
+                </div>  
+            `
+        });
+            // // for total cost 
+            // purchaseContainer.innerHTML +=
+            // `   
+            //     <div class="total-price">
+            //       <div class="total">  Total Cost : $${cartCost}.00</div>
+            //     </div>
+            // `;  
 }       
 displayPurchase();
 localStorage.clear();

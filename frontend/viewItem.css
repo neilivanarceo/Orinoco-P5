@@ -39,9 +39,8 @@ header .heading-name {
   font-size: xx-large;
 }
 
-header .heading-name a {
-  text-decoration: none;
-  color: black;
+header .heading-name a img {
+  height: 60px;
 }
 
 header .navigation ul {
@@ -101,7 +100,7 @@ h1 {
 }
 
 .container {
-  border: 1px solid black;
+  border: 1px solid silver;
   height: auto;
   width: auto;
   display: -webkit-box;
@@ -120,7 +119,7 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 20px 300px 90px 300px;
+  margin: 20px 300px 45px 300px;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -154,7 +153,7 @@ h1 {
           box-shadow: 0px 2px 20px #d3cfcf;
   width: 40%;
   height: 30%;
-  border: 1px solid black;
+  border: 1px solid silver;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -178,7 +177,7 @@ h1 {
 .container .teddy-item img {
   height: 200px;
   width: 100%;
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid silver;
 }
 
 .container .teddy-item .teddy-name {
@@ -216,7 +215,7 @@ h1 {
 }
 
 .footer-bg {
-  background: #c9c6c6;
+  background: #f3e9f1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,6 +223,9 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
 
 .footer-bg .footer-quote {

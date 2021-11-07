@@ -96,23 +96,39 @@ header .navigation ul li a:hover {
 
 .confirmation-container {
   border-collapse: collapse;
-  margin: 30px 300px;
+  width: 100%;
+  text-align: center;
 }
 
 .order-container {
+  margin-top: 30px;
   border-collapse: collapse;
-  margin: 30px 750px 30px 300px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .order-container .parent {
-  text-align: left;
   padding: 5px 20px;
   color: black;
-  width: 100%;
+  width: 30%;
   border: 1px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -213,17 +229,16 @@ header .navigation ul li a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
-  border: 1px solid black;
   font-size: 12px;
+  top: 0;
 }
 
 .total-price .total {
   height: 100%;
-  margin: 20px;
   background-color: #b1afaf;
   padding: 15px;
 }

@@ -71,8 +71,23 @@
 // }
 
 
-
-
+// function makeRequest() {
+//   return new Promise((resolve, reject) => {
+//       let request = new XMLHttpRequest();
+//       request.open('GET', 'http://localhost:3000/api/teddies');
+//       request.send();
+//       request.onreadystatechange = () => {
+//           if (request.readyState === 4) {
+//               if (request.status === 200) {
+//                   resolve(JSON.parse(request.response));
+//               } else {
+//                   reject('SERVER IS DOWN!!!');
+//               }
+//           }
+//       }
+    
+//   });
+// }
 
   
 
@@ -86,10 +101,14 @@ async function requestItems() {
 }
 requestItems()
 
+// const requestPromise = makeRequest(showProducts);
+// const response = await requestPromise; 
+
 function showProducts() { 
+ 
   const container = document.querySelector('.container');
 
-    const itemsHtml = getAllTeddies.map((teddy,i) => {
+    const itemsContainer = getAllTeddies.map((teddy,i) => {
 
     let currencyPrice = teddy.price / 100;
     
@@ -108,7 +127,7 @@ function showProducts() {
         )
     })
       if(container) {
-        container.innerHTML += itemsHtml.toString().replaceAll(',','');
+        container.innerHTML += itemsContainer.toString().replaceAll(',','');
       }
 }
 

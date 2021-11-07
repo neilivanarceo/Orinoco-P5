@@ -39,9 +39,13 @@ header .heading-name {
   font-size: xx-large;
 }
 
-header .heading-name a {
-  text-decoration: none;
-  color: black;
+header .heading-name a img {
+  height: 60px;
+}
+
+header .heading-name a img:hover {
+  -webkit-box-shadow: 0px 1px 3px #d3cfcf;
+          box-shadow: 0px 1px 3px #d3cfcf;
 }
 
 header .navigation ul {
@@ -101,7 +105,7 @@ h1 {
 }
 
 .container {
-  border: 1px solid black;
+  border: 1px solid silver;
   height: auto;
   width: auto;
   display: -webkit-box;
@@ -150,11 +154,16 @@ h1 {
       -ms-flex-direction: column;
           flex-direction: column;
   margin: 30px;
-  -webkit-box-shadow: 0px 2px 20px #d3cfcf;
-          box-shadow: 0px 2px 20px #d3cfcf;
+  -webkit-box-shadow: 0px 2px 10px #d3cfcf;
+          box-shadow: 0px 2px 10px #d3cfcf;
   width: 40%;
   height: 30%;
-  border: 1px solid black;
+  border: 1px solid silver;
+}
+
+.container .teddy-item:hover {
+  -webkit-box-shadow: 0px 1px 30px #d3cfcf;
+          box-shadow: 0px 1px 30px #d3cfcf;
 }
 
 @media only screen and (max-width: 1400px) {
@@ -178,7 +187,7 @@ h1 {
 .container .teddy-item img {
   height: 200px;
   width: 100%;
-  border-bottom: 0.5px solid black;
+  border-bottom: 0.5px solid silver;
   cursor: pointer;
 }
 
@@ -226,7 +235,7 @@ h1 {
 }
 
 .footer-bg {
-  background: #c9c6c6;
+  background: #f3e9f1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -264,11 +273,11 @@ h1 {
 }
 
 .footer-bg .footer-logos .social a {
-  color: white;
+  color: black;
 }
 
 .footer-bg .footer-logos .social a:hover {
-  color: gray;
+  color: #c9c6c6;
   cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
