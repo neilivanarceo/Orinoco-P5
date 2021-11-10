@@ -93,16 +93,17 @@
 
 let getAllTeddies = [];
 async function requestItems() {
-  const response = await axios.get('http://localhost:3000/api/teddies');
-  
-  getAllTeddies = response.data
-  
-  showProducts()
+  const response = await axios.get('http://localhost:3000/api/teddies');  
+        if (response.status === 200) {
+          getAllTeddies = response.data
+          showProducts();
+        } 
+        if (response.status === 404) {
+         console.log('Server is down');
+        }  
+        
 }
 requestItems()
-
-// const requestPromise = makeRequest(showProducts);
-// const response = await requestPromise; 
 
 function showProducts() { 
  
