@@ -98,9 +98,9 @@ async function requestItems() {
           getAllTeddies = response.data
           showProducts();
         } 
-        if (response.status === 404) {
-         console.log('Server is down');
-        }  
+        // if (response.status === 404) {
+        //  console.log('Server is down');
+        // }  
         
 }
 requestItems()
