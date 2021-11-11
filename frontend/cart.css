@@ -18,19 +18,19 @@ header {
 
 @media only screen and (max-width: 1400px) {
   header {
-    margin: 20px 20px;
+    margin: 20px 400px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   header {
-    margin: 5px 5px;
+    margin: 20px 100px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   header {
-    margin: 5px 5px;
+    margin: 20px 15px;
   }
 }
 
@@ -49,35 +49,11 @@ header .navigation ul {
   display: flex;
 }
 
-@media only screen and (max-width: 900px) {
-  header .navigation ul {
-    margin-right: 0;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  header .navigation ul {
-    margin-right: 0;
-  }
-}
-
 header .navigation ul li {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
   margin: 20px;
-}
-
-@media only screen and (max-width: 900px) {
-  header .navigation ul li {
-    margin-right: 0;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  header .navigation ul li {
-    margin-right: 0;
-  }
 }
 
 header .navigation ul li a {
@@ -105,26 +81,27 @@ header .navigation ul li a:hover {
 
 @media only screen and (max-width: 1400px) {
   .heading-title {
-    margin: 30px 200px;
+    margin: 20px 250px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .heading-title {
-    margin: 30px 150px;
+    margin: 20px 120px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .heading-title {
-    margin: 30px 50px;
+    margin: 0px 20px;
+    padding: 25px 15px;
   }
 }
 
 .for-empty-cart {
   text-align: center;
   font-size: 30px;
-  margin-top: 50px;
+  margin-top: 0px;
 }
 
 .cart-container {
@@ -134,19 +111,19 @@ header .navigation ul li a:hover {
 
 @media only screen and (max-width: 1400px) {
   .cart-container {
-    margin: 30px 200px;
+    margin: 20px 250px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .cart-container {
-    margin: 30px 100px;
+    margin: 20px 120px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .cart-container {
-    margin: 30px 50px;
+    margin: 0px 20px;
   }
 }
 
@@ -213,6 +190,7 @@ header .navigation ul li a:hover {
 @media only screen and (max-width: 600px) {
   .cart-container .parent .cart-detail {
     margin: 5px 2px;
+    width: 25%;
   }
 }
 
@@ -285,35 +263,35 @@ header .navigation ul li a:hover {
   padding: 15px;
 }
 
-#checkout-container {
+@media only screen and (max-width: 600px) {
+  .total-price .total {
+    padding: 5px;
+    margin: 10px 20px;
+  }
+}
+
+#input-form-text {
+  color: black;
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
+  font-size: 18px;
 }
 
-#checkout-container .checkout {
-  height: 100%;
-  margin: 20px;
-  border: 1px solid silver;
-  background-color: #3c3cf1;
-  padding: 10px;
-}
-
-#checkout-container .checkout:hover {
-  background-color: #7171c7;
-}
-
-#checkout-container .checkout a {
-  text-decoration: none;
-  color: white;
+@media only screen and (max-width: 600px) {
+  #input-form-text {
+    margin-top: 20px;
+  }
 }
 
 #input-form-container {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -339,61 +317,62 @@ header .navigation ul li a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-shadow: 0px 2px 20px #d3cfcf;
-          box-shadow: 0px 2px 20px #d3cfcf;
-  border: 1px solid black;
-  width: 25%;
-  padding-top: 20px;
+  border: 1px solid silver;
+  width: 30%;
+  padding-top: 10px;
 }
 
 @media only screen and (max-width: 1400px) {
   #input-form-container .forms {
     width: 40%;
+    margin: 20px 250px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   #input-form-container .forms {
     width: 50%;
+    margin: 20px 120px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   #input-form-container .forms {
-    width: 60%;
+    width: 100%;
+    margin: 5px 20px 20px 20px;
   }
 }
 
 #input-form-container .forms .form-group {
-  margin: 10px 20px 10px 20px;
+  margin: 10px 40px;
   position: relative;
 }
 
 @media only screen and (max-width: 1400px) {
   #input-form-container .forms .form-group {
-    margin: 10px 10px 10px 10px;
+    margin: 5px 40px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   #input-form-container .forms .form-group {
-    margin: 10px 10px 10px 10px;
+    margin: 5px 40px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   #input-form-container .forms .form-group {
-    margin: 5px 5px 5px 5px;
+    margin: 5px 20px;
   }
 }
 
 #input-form-container .forms .form-group input {
-  width: 90%;
+  width: 100%;
   padding: 5px;
   font-size: 15px;
   border-radius: 8px;
   display: block;
-  border: 1px solid black;
+  border: 1px solid silver;
 }
 
 #input-form-container .forms .form-group.success input {
@@ -407,14 +386,14 @@ header .navigation ul li a:hover {
 #input-form-container .forms .form-group i {
   position: absolute;
   top: 26px;
-  right: 45px;
+  right: 10px;
   visibility: hidden;
 }
 
 #input-form-container .forms .form-group.success i.fa-check-circle {
   position: absolute;
   top: 26px;
-  right: 45px;
+  right: 10px;
   color: green;
   visibility: visible;
 }
@@ -422,7 +401,7 @@ header .navigation ul li a:hover {
 #input-form-container .forms .form-group.error i.fa-exclamation-circle {
   position: absolute;
   top: 26px;
-  right: 45px;
+  right: 10px;
   color: red;
   visibility: visible;
 }
@@ -443,7 +422,7 @@ header .navigation ul li a:hover {
 #input-form-container .forms #submit-button {
   width: 80%;
   padding: 10px;
-  margin: 30px 20px 30px 20px;
+  margin: 10px 40px;
   border-radius: 5px;
   margin-top: 10px;
   font-size: 18px;
@@ -452,6 +431,13 @@ header .navigation ul li a:hover {
   transition: 0.3s ease background-color;
   color: white;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  #input-form-container .forms #submit-button {
+    margin: 10px 20px;
+    width: 90%;
+  }
 }
 
 #input-form-container .forms #submit-button:hover {

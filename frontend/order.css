@@ -18,19 +18,19 @@ header {
 
 @media only screen and (max-width: 1400px) {
   header {
-    margin: 20px 20px;
+    margin: 20px 200px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   header {
-    margin: 5px 5px;
+    margin: 20px 100px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   header {
-    margin: 5px 5px;
+    margin: 20px 40px;
   }
 }
 
@@ -70,7 +70,8 @@ header .navigation ul li {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin: 20px;
+  margin: 10px;
+  border: 1px solid black;
 }
 
 @media only screen and (max-width: 900px) {
@@ -96,14 +97,31 @@ header .navigation ul li a:hover {
 
 .confirmation-container {
   border-collapse: collapse;
-  width: 100%;
+  width: auto;
   text-align: center;
+}
+
+@media only screen and (max-width: 1400px) {
+  .confirmation-container {
+    margin: 20px 200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .confirmation-container {
+    margin: 20px 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .confirmation-container {
+    margin: 20px 40px;
+  }
 }
 
 .order-container {
   margin-top: 30px;
-  border-collapse: collapse;
-  width: 100%;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -116,11 +134,29 @@ header .navigation ul li a:hover {
           align-items: center;
 }
 
+@media only screen and (max-width: 1400px) {
+  .order-container {
+    margin: 20px 200px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .order-container {
+    margin: 20px 100px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .order-container {
+    margin: 20px 40px;
+  }
+}
+
 .order-container .parent {
   padding: 5px 20px;
   color: black;
   width: 30%;
-  border: 1px solid black;
+  border: 1px solid silver;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -137,18 +173,21 @@ header .navigation ul li a:hover {
 @media only screen and (max-width: 1400px) {
   .order-container .parent {
     padding: 5px 10px;
+    width: 50%;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .order-container .parent {
     padding: 5px 10px;
+    width: 60%;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .order-container .parent {
     padding: 5px 5px;
+    width: 80%;
   }
 }
 
@@ -159,7 +198,7 @@ header .navigation ul li a:hover {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 5px 2px;
-  width: 15%;
+  width: 20%;
   border: 1px solid black;
   padding: 3px;
 }
@@ -167,18 +206,21 @@ header .navigation ul li a:hover {
 @media only screen and (max-width: 1400px) {
   .order-container .parent .cart-detail {
     margin: 5px 2px;
+    width: 25%;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .order-container .parent .cart-detail {
     margin: 5px 2px;
+    width: 25%;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .order-container .parent .cart-detail {
     margin: 5px 2px;
+    width: 25%;
   }
 }
 

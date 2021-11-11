@@ -15,24 +15,25 @@ function showItem() {
   currency: 'USD', useGrouping:false}).format(currencyPrice, teddy.price);
   const itemsHtml = 
         `
-        <div class="teddy-item"> 
+          <div class="teddy-item"> 
             <img class="image-item" src="${teddy.imageUrl}"></img>
-               <span class="teddy-name">${teddy.name}</span>
-               <span class="description">${teddy.description}</span>
-               
-                   <form> Color:
-                       <select name="color" id="item-color" title="Choose a color">
-                           <option value="White">White</option>
-                           <option value="Brown">Brown</option>
-                           <option value="Pink">Pink</option>
-                           <option value="Yellow">Yellow</option>
-                       </select>
-                   </form>
-                   <span class="price">Price : ${actualPrice}</span>
-                   <a> <button class="addToCart"  href="#"> 
-                   Add to Cart </button>
-                   </a>
-        </div>
+            <span class="teddy-name">${teddy.name}</span>
+            <span class="description">${teddy.description}</span>
+            <form> Color:
+              <select name="color" id="item-color" title="Choose a color">
+                <option value="White">White</option>
+                <option value="Brown">Brown</option>
+                <option value="Pink">Pink</option>
+                <option value="Yellow">Yellow</option>
+              </select>
+            </form>
+            <span class="price">Price : ${actualPrice}</span>
+            <a> <button class="addToCart"  href="#"> 
+              Add to Cart </button>
+            </a>
+           
+          </div>
+          <div id="alert"><span></span></div>
         `
   if(container) {
     container.innerHTML += itemsHtml.toString()
@@ -58,14 +59,19 @@ function itemsInLocalStorage(teddy) {
   
   let itemCountInCart = localStorage.getItem('totalQuantityInCart');  
   itemCountInCart = parseInt(itemCountInCart);
-      
+
+  let message = [];
+   message = document.getElementById('alert').textContent;
+
+
   let cartCostFromLocalStorage = localStorage.getItem('totalCostInCart');
   cartCostFromLocalStorage = parseInt(cartCostFromLocalStorage);
  
   let itemsInLocalStorage = localStorage.getItem('productsInCart');
   itemsInLocalStorage = JSON.parse(itemsInLocalStorage);
-  
+ 
   let itemColor = document.getElementById('item-color').value;
+  console.log(itemColor);
  
   if (itemsInLocalStorage !== null) {                                         
     if (itemsInLocalStorage[teddy.name + itemColor] === undefined) {           //here where "second and the rest item add to local storage"    
@@ -73,7 +79,7 @@ function itemsInLocalStorage(teddy) {
           ...itemsInLocalStorage,
           [teddy.name + itemColor]: teddy
         } 
-
+        
         localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);           // will add quantity inside cart.
         document.querySelector('.myCart span').textContent = itemCountInCart + 1; 
         
@@ -85,6 +91,8 @@ function itemsInLocalStorage(teddy) {
         itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;             // adding color info on my product
         
         alert(`Your adding a new bear named ${teddy.name} with a color of ${itemColor}`);  // will alert the customer that he's adding the same bear but different color
+
+        document.getElementById('alert').textContent = `${teddy.name} with a color of ${itemColor} added to the cart`;
     } 
     else { 
       itemsInLocalStorage[teddy.name + itemColor] == undefined ;         // here when item is already in the cart it will not add the same item. 
@@ -94,8 +102,8 @@ function itemsInLocalStorage(teddy) {
   else {                                                                       // here where "first item" will add to local storage   
     itemsInLocalStorage = {
       [teddy.name + itemColor]: teddy
-    }           
-    
+    }       
+
     localStorage.setItem('totalQuantityInCart', 1);                         // counting quantity insinde the cart
     document.querySelector('.myCart span').textContent = 1;                 
 
@@ -104,25 +112,11 @@ function itemsInLocalStorage(teddy) {
     itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;        // adding color info on my product
 
     itemsInLocalStorage[teddy.name + itemColor]['quantity'] = 1;              // adding quantity info on my product
-    
 
     alert(`Your adding bear named ${teddy.name} with a color of ${itemColor} in your cart`);      //will alert the customer that his adding a new bear
+
+    document.getElementById('alert').textContent = `${teddy.name} with a color of ${itemColor} added to the cart`;
   }
   localStorage.setItem("productsInCart", JSON.stringify(itemsInLocalStorage));
-  // totalCostInCart(teddy)
-  // totalQuantityInCart ()
 }
-
-
-
-// function totalCostInCart(teddy) {
-//   let cartCost = localStorage.getItem('totalCostInCart');
-//   if (itemsInLocalStorage[teddy.name + itemColor] === undefined) {
-//       cartCost = parseInt(cartCost);
-//       localStorage.setItem("totalCostInCart", cartCost + teddy.price / 100);
-//     } else {
-//       localStorage.setItem("totalCostInCart", teddy.price / 100);
-//     }
-// }
-
-AddedToCart();
+AddedToCart();  

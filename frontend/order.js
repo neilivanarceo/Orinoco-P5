@@ -44,19 +44,16 @@ function displayPurchase() {
                         <div id="subtotal">
                             <span>$${(teddy.price * teddy.quantity) / 100}.00</span>
                         </div>
-                </div>  
-                <div class="total-price">
-                  <div class="total">  Total Cost : $${cartCost}.00</div>
-                </div>  
+                
             `
         });
-            // // for total cost 
-            // purchaseContainer.innerHTML +=
-            // `   
-            //     <div class="total-price">
-            //       <div class="total">  Total Cost : $${cartCost}.00</div>
-            //     </div>
-            // `;  
+            // for total cost 
+            purchaseContainer.innerHTML +=
+            `   
+                <div class="total-price">
+                  <div class="total">  Total Cost : $${cartCost}.00</div>
+                </div>
+            `;  
 }       
 displayPurchase();
 localStorage.clear();

@@ -10,7 +10,15 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 20px 300px;
-  @include margin30;
+  @include responsive(laptop) {
+    margin: 20px 200px;
+  }
+  @include responsive(tab) {
+    margin: 20px 100px;
+  }
+  @include responsive(phone) {
+    margin: 20px 40px;
+  }
 
   .heading-name {
     margin: 0px;
@@ -36,7 +44,8 @@ header {
 
     li {
       display: inline-flex;
-      margin: 20px;
+      margin: 10px;
+      border: 1px solid black;
 
       @include responsive(tab) {
         margin-right: 0;
@@ -59,56 +68,83 @@ header {
 
 .confirmation-container {
   border-collapse: collapse;
-  width: 100%;
+  width: auto;
   text-align: center;
+  // border: 1px solid black;
+
+  @include responsive(laptop) {
+    margin: 20px 200px;
+  }
+  @include responsive(tab) {
+    margin: 20px 100px;
+  }
+  @include responsive(phone) {
+    margin: 20px 40px;
+  }
 }
 
 .order-container {
+  // border: 1px solid black;
   margin-top: 30px;
-  border-collapse: collapse;
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
-
   align-items: center;
+  // margin-right: 200px;
+
+  @include responsive(laptop) {
+    margin: 20px 200px;
+    // margin-right: 200px;
+  }
+  @include responsive(tab) {
+    margin: 20px 100px;
+  }
+  @include responsive(phone) {
+    margin: 20px 40px;
+  }
 
   .parent {
     padding: 5px 20px;
     color: black;
     width: 30%;
-    border: 1px solid black;
+    border: 1px solid silver;
     display: flex;
     align-content: center;
     align-items: center;
-
     justify-content: space-between;
 
     @include responsive(laptop) {
       padding: 5px 10px;
+      width: 50%;
     }
     @include responsive(tab) {
       padding: 5px 10px;
+      width: 60%;
     }
     @include responsive(phone) {
       padding: 5px 5px;
+      width: 80%;
     }
 
     .cart-detail {
       display: flex;
       flex-wrap: wrap;
       margin: 5px 2px;
-      width: 15%;
+      width: 20%;
       border: 1px solid black;
       padding: 3px;
 
       @include responsive(laptop) {
         margin: 5px 2px;
+        width: 25%;
       }
       @include responsive(tab) {
         margin: 5px 2px;
+        width: 25%;
       }
       @include responsive(phone) {
         margin: 5px 2px;
+        width: 25%;
       }
 
       p {

@@ -55,14 +55,18 @@ function displayCart() {
                 </div>
             `;  
             // for checkout button 
-            productContainer.innerHTML +=
-            ` <div id="checkout-container" >
-                  <div class="checkout" onclick="showInputForm()"><a href="#input-form-container"> Checkout</a></div>
+            // productContainer.innerHTML +=
+            // `   <div id="input-form-text">
+            //       <p> Please complete your details to purchase</p>
+            //     </div>
+            // `;
+
+            // container for input form inside cart page
+            inputFormContainer.innerHTML =
+                `
+                <div id="input-form-text">
+                  <p> Please complete your details to purchase</p>
                 </div>
-            `;
-            // containter for input form inside cart page
-            inputFormContainer.innerHTML +=
-            `
                 <div id="input-form-container">
                     <div class="forms">
                         <form id="input-information" name="myForm">

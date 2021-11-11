@@ -18,19 +18,19 @@ header {
 
 @media only screen and (max-width: 1400px) {
   header {
-    margin: 20px 20px;
+    margin: 20px 200px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   header {
-    margin: 5px 5px;
+    margin: 20px 100px;
   }
 }
 
 @media only screen and (max-width: 600px) {
   header {
-    margin: 5px 5px;
+    margin: 20px 15px;
   }
 }
 
@@ -106,6 +106,10 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
@@ -124,13 +128,13 @@ h1 {
 
 @media only screen and (max-width: 1400px) {
   .container {
-    margin: 20px 20px;
+    margin: 20px 200px;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .container {
-    margin: 20px 20px;
+    margin: 20px 100px;
   }
 }
 
@@ -151,7 +155,7 @@ h1 {
   margin: 30px;
   -webkit-box-shadow: 0px 2px 20px #d3cfcf;
           box-shadow: 0px 2px 20px #d3cfcf;
-  width: 40%;
+  width: 50%;
   height: 30%;
   border: 1px solid silver;
 }
@@ -159,18 +163,22 @@ h1 {
 @media only screen and (max-width: 1400px) {
   .container .teddy-item {
     margin: 20px 20px;
+    width: 60%;
   }
 }
 
 @media only screen and (max-width: 900px) {
   .container .teddy-item {
     margin: 10x 10px;
+    width: 70%;
+    height: 30%;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .container .teddy-item {
-    margin: 5px 5px;
+    width: 90%;
+    height: 30%;
   }
 }
 
@@ -214,53 +222,24 @@ h1 {
   background-color: #d8d8d8;
 }
 
-.footer-bg {
-  background: #f3e9f1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  bottom: 0;
-  position: absolute;
-  width: 100%;
+.container #alert {
+  color: green;
+  font-size: 16px;
 }
 
-.footer-bg .footer-quote {
-  margin-top: 20px;
-  margin-left: 30px;
-  margin-right: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-align: center;
-  color: black;
+@media only screen and (max-width: 900px) {
+  .container #alert {
+    margin: 0x 20px;
+  }
 }
 
-.footer-bg .footer-logos {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.footer-bg .footer-logos .social {
-  padding: 15px;
-}
-
-.footer-bg .footer-logos .social a {
-  color: black;
-}
-
-.footer-bg .footer-logos .social a:hover {
-  color: #c9c6c6;
-  cursor: pointer;
+@media only screen and (max-width: 600px) {
+  .container #alert {
+    font-size: 12px;
+    margin: 10px 20px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 /*# sourceMappingURL=viewItem.css.map */
