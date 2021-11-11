@@ -1,28 +1,18 @@
+// request the data on the server
 let getAllTeddies = [];
 async function requestItems() {
   const response = await axios.get('http://localhost:3000/api/teddies');  
-        if (response.status === 200) {
           getAllTeddies = response.data
-          showProducts();
-        }     
-
-        if (response.status === 404) {
-          reject('Server is not responding')
-        } 
 }
 requestItems()
 
+// will display the product in the home page.
 function showProducts() { 
- 
   const container = document.querySelector('.container');
-
-    const itemsContainer = getAllTeddies.map((teddy,i) => {
-
+  const itemsContainer = getAllTeddies.map((teddy,i) => {
     let currencyPrice = teddy.price / 100;
-    
-      const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
+    const actualPrice = new Intl.NumberFormat('en-US', { style: 'currency',
       currency: 'USD', useGrouping:false}).format(currencyPrice);
-      
         return(
           `
             <div class="teddy-item"> 
@@ -38,12 +28,11 @@ function showProducts() {
         container.innerHTML += itemsContainer.toString().replaceAll(',','');
       }
 }
-
+// this will update the number added to the cart
 function AddedToCart(){                                 
-  let itemCount = localStorage.getItem('totalQuantityInCart');
-
-  if(itemCount){
+  let itemCount = localStorage.getItem('totalQuantityInCart');    
+    if(itemCount){
       document.querySelector('.myCart span').textContent = itemCount;
-  }
+    }
 }
 AddedToCart()

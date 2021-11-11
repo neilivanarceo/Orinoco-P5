@@ -121,12 +121,6 @@ function displayCart() {
 }
 displayCart()
 
-// show the input form when clicking the checkout button
-function showInputForm() {
-    document.getElementById("input-form-container").style.display="flex";
-    document.getElementById("checkout-container").style.display="none";
-}
-
 // deleting item from the cart page and local storage
 function deleteItemFromCart() {
     let deleteButton = document.querySelectorAll('.delete-button');
@@ -416,7 +410,7 @@ function isAddressValid(address) {
  function isCityValid(city) {
     return /^(?:[A-Za-z]{2,}(?:(\.\s|'s\s|\s?-\s?|\s)?(?=[A-Za-z]+))){1,2}(?:[A-Za-z]+)?$/.test(city);
  }
-// for error message in the input form
+// for error validation in the input form
 function setErrorFor(input, message) {
     const formGroup = input.parentElement; // parent element which is '.form-group'
     const small = formGroup.querySelector('small');
