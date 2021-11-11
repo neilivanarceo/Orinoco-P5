@@ -6,9 +6,9 @@ async function requestItems() {
           showProducts();
         }     
 
-        if (response.status === 404) {
-          reject('Server is not responding')
-        } 
+        // if (response.status === 404) {
+        //   reject('Server is not responding')
+        // } 
 }
 requestItems()
 
