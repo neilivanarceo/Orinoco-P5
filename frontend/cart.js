@@ -383,7 +383,7 @@ async function submitFormData(postRequestObj) {
         const requestPromise = makeRequest(postRequestObj);
         const response = await requestPromise; 
         async function goToConfPage() { 
-            location.href = `/order.html?conf=${response.orderId}&firstName=${response.contact.firstName}&lastName=${response.contact.lastName}&address=${response.contact.address}&city=${response.contact.city}`;
+            location.href = `./order.html?conf=${response.orderId}&firstName=${response.contact.firstName}&lastName=${response.contact.lastName}&address=${response.contact.address}&city=${response.contact.city}`;
         }
         await goToConfPage();
         responseFirstName.textContent = response.contact.firstName;
