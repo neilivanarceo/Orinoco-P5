@@ -9,7 +9,7 @@
 header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 400px;
+  margin: 20px 300px;
 
   @include responsive(laptop) {
     margin: 20px 200px;
