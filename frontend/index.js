@@ -5,6 +5,10 @@ async function requestItems() {
           getAllTeddies = response.data
           showProducts();
         }     
+
+        if (response.status === 404) {
+          reject('Server is not responding')
+        } 
 }
 requestItems()
 
