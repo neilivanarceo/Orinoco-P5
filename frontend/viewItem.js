@@ -1,4 +1,3 @@
-// get the item by getting the id using params
 let productsInCart = [];
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id')
@@ -8,7 +7,7 @@ async function requestItems() {
   showItem()
 }
 requestItems();
-//will display the item in the page
+
 function showItem() {
   const container = document.querySelector('.container');
   let currencyPrice = teddy.price /100;
@@ -39,8 +38,8 @@ function showItem() {
   if(container) {
     container.innerHTML += itemsHtml.toString()
   }
-// selecting the addToCart button.
-  let carts = document.querySelectorAll('.addToCart');            
+
+  let carts = document.querySelectorAll('.addToCart');            // selecting the addToCart button.
   for (let i=0; i < carts.length; i++){
     carts[i].addEventListener('click', () => {
       itemsInLocalStorage(teddy)
@@ -48,22 +47,22 @@ function showItem() {
     })
   }
 }
-// this function is to get quantity inside the totalQuantityInCart 
- // in the local Storage to add in myCart inside HTML
-function AddedToCart(){                                                 
-  let itemCountInCart = localStorage.getItem('totalQuantityInCart');   
+
+function AddedToCart(){                                                 // this function is to get quantity inside the totalQuantityInCart 
+  let itemCountInCart = localStorage.getItem('totalQuantityInCart');    // in the local Storage to add in myCart inside HTML
   if(itemCountInCart){
       document.querySelector('.myCart span').textContent = itemCountInCart;
   }
 }
 
 function itemsInLocalStorage(teddy) {
- 
+  
   let itemCountInCart = localStorage.getItem('totalQuantityInCart');  
   itemCountInCart = parseInt(itemCountInCart);
-  // text notification after adding to the cart
+
   let message = [];
    message = document.getElementById('alert').textContent;
+
 
   let cartCostFromLocalStorage = localStorage.getItem('totalCostInCart');
   cartCostFromLocalStorage = parseInt(cartCostFromLocalStorage);

@@ -57,3 +57,7 @@ function displayPurchase() {
 }       
 displayPurchase();
 localStorage.clear();
+
+
+
+

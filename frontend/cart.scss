@@ -11,7 +11,7 @@ header {
   justify-content: space-between;
   margin: 20px 400px;
   @include responsive(laptop) {
-    margin: 20px 400px;
+    margin: 20px 200px;
   }
   @include responsive(tab) {
     margin: 20px 100px;
