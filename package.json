@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "homepage": "https://neilivanarceo.github.io/Orinoco-P5/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
