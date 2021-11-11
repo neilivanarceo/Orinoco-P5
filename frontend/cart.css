@@ -13,16 +13,16 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px 300px;
+  margin: 20px 400px;
 }
 
 @media only screen and (max-width: 1400px) {
   header {
-    margin: 20px 200px;
+    margin: 20px 400px;
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   header {
     margin: 20px 100px;
   }
@@ -85,7 +85,7 @@ header .navigation ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   .heading-title {
     margin: 20px 120px;
   }
@@ -115,7 +115,7 @@ header .navigation ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   .cart-container {
     margin: 20px 120px;
   }
@@ -147,7 +147,7 @@ header .navigation ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   .cart-container .parent {
     padding: 5px 10px;
   }
@@ -181,7 +181,7 @@ header .navigation ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   .cart-container .parent .cart-detail {
     margin: 5px 2px;
   }
@@ -329,7 +329,7 @@ header .navigation ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   #input-form-container .forms {
     width: 50%;
     margin: 20px 120px;
@@ -354,7 +354,7 @@ header .navigation ul li a:hover {
   }
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1024px) {
   #input-form-container .forms .form-group {
     margin: 5px 40px;
   }
