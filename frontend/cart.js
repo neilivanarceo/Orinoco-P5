@@ -54,12 +54,6 @@ function displayCart() {
                   <div class="total">  Total Cost : $${cartCostFromLocalStorage}.00</div>
                 </div>
             `;  
-            // for checkout button 
-            // productContainer.innerHTML +=
-            // `   <div id="input-form-text">
-            //       <p> Please complete your details to purchase</p>
-            //     </div>
-            // `;
 
             // container for input form inside cart page
             inputFormContainer.innerHTML =
