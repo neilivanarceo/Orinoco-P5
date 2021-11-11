@@ -13,7 +13,7 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  margin: 20px 300px;
+  margin: 20px 400px;
 }
 
 @media only screen and (max-width: 1400px) {
