@@ -18,13 +18,13 @@ header {
 
 @media only screen and (max-width: 1400px) {
   header {
-    margin: 20px 400px;
+    margin: 20px 250px;
   }
 }
 
 @media only screen and (max-width: 1024px) {
   header {
-    margin: 20px 100px;
+    margin: 20px 120px;
   }
 }
 
