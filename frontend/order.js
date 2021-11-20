@@ -22,11 +22,11 @@ function displayPurchase() {
             `
             <h2> Thank You ${firstName} ${lastName} for your order! </h2><br>
             <h5> Order Confirmation Id : ${orderId} </h5><br>
-            
+            <h3> Purchase Summary :</h3>
             `
             purchaseContainer.innerHTML +=
             `
-                <h3> Purchase Summary :</h3>
+               
                 <div class="parent">
                         <div class="cart-detail"> 
                             <img src="${teddy.imageUrl}"></img>
