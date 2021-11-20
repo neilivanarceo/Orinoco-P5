@@ -78,7 +78,7 @@ function itemsInLocalStorage(teddy) {
       itemsInLocalStorage =  {
           ...itemsInLocalStorage,
           [teddy.name + itemColor]: teddy
-        } 
+      } 
         
         localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);           // will add quantity inside cart.
         document.querySelector('.myCart span').textContent = itemCountInCart + 1; 
@@ -93,26 +93,23 @@ function itemsInLocalStorage(teddy) {
         alert(`Your adding a new bear named ${teddy.name} with a color of ${itemColor}`);  // will alert the customer that he's adding the same bear but different color
 
         document.getElementById('alert').textContent = `${teddy.name} with a color of ${itemColor} added to the cart`;
-    } else {      // here where the same item will add another quantity.
 
-    localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);           // will add quantity inside cart.
-    document.querySelector('.myCart span').textContent = itemCountInCart + 1; 
+    } 
+      else {                                                              // here where the same item will add another quantity.
 
-    localStorage.setItem("totalCostInCart", cartCostFromLocalStorage + teddy.price / 100);
+        localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);           // will add quantity inside cart.
+        document.querySelector('.myCart span').textContent = itemCountInCart + 1; 
 
-    itemsInLocalStorage[teddy.name + itemColor]['quantity'] += 1; // will add 1 to the quantity of the product
-    
-    itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;  
-    // alert(`+1`);
-    alert(`Your adding another bear named ${teddy.name} with a color of ${itemColor}`);
+        localStorage.setItem("totalCostInCart", cartCostFromLocalStorage + teddy.price / 100);
 
-    document.getElementById('alert').textContent = `Another ${teddy.name} with a color of ${itemColor} added to the cart`;
-    }
-    
-    // else { 
-    //   itemsInLocalStorage[teddy.name + itemColor] == undefined ;         // here when item is already in the cart it will not add the same item. 
-    //   alert(`This bear with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
-    // }
+        itemsInLocalStorage[teddy.name + itemColor]['quantity'] += 1; // will add 1 to the quantity of the product
+        
+        itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;  
+        // alert(`+1`);
+        alert(`Your adding another bear named ${teddy.name} with a color of ${itemColor}`);
+
+        document.getElementById('alert').textContent = `Another ${teddy.name} with a color of ${itemColor} added to the cart`;
+      }
   } 
   else {                                                                       // here where "first item" will add to local storage   
     itemsInLocalStorage = {
