@@ -57,11 +57,11 @@ function AddedToCart(){                                                 // this 
 
 function itemsInLocalStorage(teddy) {
   
-  let itemCountInCart = localStorage.getItem('totalQuantityInCart');  
+  let itemCountInCart = localStorage.getItem('totalQuantityInCart');  // get the quantity in the local storage
   itemCountInCart = parseInt(itemCountInCart);
 
   let message = [];
-   message = document.getElementById('alert').textContent;
+   message = document.getElementById('alert').textContent;      // the alert notification after adding to the cart
 
 
   let cartCostFromLocalStorage = localStorage.getItem('totalCostInCart');
@@ -73,8 +73,8 @@ function itemsInLocalStorage(teddy) {
   let itemColor = document.getElementById('item-color').value;
   console.log(itemColor);
  
-  if (itemsInLocalStorage !== null) {                                         
-    if (itemsInLocalStorage[teddy.name + itemColor] === undefined) {           //here where "second and the rest item add to local storage"    
+  if (itemsInLocalStorage !==  null) {                                         
+    if (itemsInLocalStorage[teddy.name + itemColor] == undefined) {           //here where the second and the rest item add to local storage"    
       itemsInLocalStorage =  {
           ...itemsInLocalStorage,
           [teddy.name + itemColor]: teddy
@@ -87,17 +87,32 @@ function itemsInLocalStorage(teddy) {
 
         itemsInLocalStorage[teddy.name + itemColor]['quantity'] = 1;                   // adding quantity info on my product
         
-
         itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;             // adding color info on my product
         
+      
         alert(`Your adding a new bear named ${teddy.name} with a color of ${itemColor}`);  // will alert the customer that he's adding the same bear but different color
 
         document.getElementById('alert').textContent = `${teddy.name} with a color of ${itemColor} added to the cart`;
-    } 
-    else { 
-      itemsInLocalStorage[teddy.name + itemColor] == undefined ;         // here when item is already in the cart it will not add the same item. 
-      alert(`This bear with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
+    } else {      // here where the same item will add another quantity.
+
+    localStorage.setItem('totalQuantityInCart', itemCountInCart + 1);           // will add quantity inside cart.
+    document.querySelector('.myCart span').textContent = itemCountInCart + 1; 
+
+    localStorage.setItem("totalCostInCart", cartCostFromLocalStorage + teddy.price / 100);
+
+    itemsInLocalStorage[teddy.name + itemColor]['quantity'] += 1; // will add 1 to the quantity of the product
+    
+    itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;  
+    // alert(`+1`);
+    alert(`Your adding another bear named ${teddy.name} with a color of ${itemColor}`);
+
+    document.getElementById('alert').textContent = `Another ${teddy.name} with a color of ${itemColor} added to the cart`;
     }
+    
+    // else { 
+    //   itemsInLocalStorage[teddy.name + itemColor] == undefined ;         // here when item is already in the cart it will not add the same item. 
+    //   alert(`This bear with a color of ${itemColor} is already in your cart`);    // and it will alert the customer.
+    // }
   } 
   else {                                                                       // here where "first item" will add to local storage   
     itemsInLocalStorage = {
@@ -112,7 +127,7 @@ function itemsInLocalStorage(teddy) {
     itemsInLocalStorage[teddy.name + itemColor]['color'] = itemColor;        // adding color info on my product
 
     itemsInLocalStorage[teddy.name + itemColor]['quantity'] = 1;              // adding quantity info on my product
-
+    // alert(`1`);
     alert(`Your adding bear named ${teddy.name} with a color of ${itemColor} in your cart`);      //will alert the customer that his adding a new bear
 
     document.getElementById('alert').textContent = `${teddy.name} with a color of ${itemColor} added to the cart`;
